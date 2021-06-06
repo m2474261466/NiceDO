@@ -1,0 +1,216 @@
+    *{
+		margin:0px;
+		padding:0px;
+		list-style-type: none;
+		
+	}
+      
+
+      #first{
+        width:100%;
+        text-align:right;
+        background:#E3E4E5;
+        padding-right:100px;
+        font-size:large; 
+       
+        
+      }
+      #second{
+      
+      height:150px;
+      position: relative;
+      }
+      
+       #second #s4{
+       width: 119px;
+		height: 123px;
+		position: absolute;
+		left: 36px;
+		top: 5px;
+      }
+      
+      #second #mmj{
+       position: absolute;
+left: 155px;
+top: 36px;
+font-family: "华文楷体";
+font-size: 50px;
+	       
+      }
+     #second .p1{
+        position: absolute;
+		left: 458px;
+		top: 118px;
+     
+     }
+     
+      #aa{
+         border:2px solid red;
+         width:618px;
+         height:47px;
+         position: absolute;
+         top:48px;
+        left:25%;
+      }
+      
+      
+     p{
+     
+      display:inline;
+      cursor: pointer;
+      
+     }
+     #bt{
+            border: 2px solid red;
+			width: 90px;
+			height: 50px;
+			background: red;
+			position: absolute;
+			top: 48px;
+			left: 66%;
+     }
+      .p1{
+        text-align:center;
+        font:12px/1.5 Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif;
+        color:#666;
+        padding-right: 7%;
+        
+      }
+    
+
+		#s3{
+		  position: absolute;
+		  top:42%;
+		  left:63%;
+		}
+
+#banner_wrap{
+		width:900px;
+		height:470px;
+		margin:auto;
+		margin-top:30px;
+		position:relative;
+		overflow:hidden;/* 将溢出部分隐藏 */
+		 list-style-type: none;
+	}
+	#banner{
+		height:100%;
+		position:absolute;	
+		 
+	}
+	 #banner_wrap li{
+		float:left;
+	}
+	.cat li{
+	float:left;
+	}
+	.focus{
+		width:200px;
+		height:20px;
+		
+		position:absolute;
+		left:46%;
+		bottom:10px;
+	}
+	.focusli{
+		width:10px;
+		height:10px;
+		background: #FFF;
+		margin:4px 6px;
+		border-radius:50%;
+		cursor:pointer;
+	}
+	.btn{
+		width:28px;
+		height:70px;
+		background: #ccc;
+		position:absolute;
+		top:40%;
+		border-radius:5px;
+	}
+	.left{
+		left:2px;
+		background:#ccc url(../myOrder/arrow-left.png) no-repeat 50%;		
+	}
+	.right{
+		right:2px;
+		background:#ccc url(../myOrder/arrow-right.png) no-repeat 50%;		
+	}
+    #banner_wrap img{
+	    width:900px;
+		height:470px;
+	}
+	  .cat img{
+			width: 365px;
+		    height: 260px;
+		    cursor: pointer;
+		}
+		
+      .cat ul{
+        width:900px;
+        margin:0px auto;
+        list-style-type: none;/* 去掉列表元素左侧的符号 */
+       }
+       .cat li{
+       width:365px;
+       
+       margin:10px 20px;
+       float:left;
+       }
+       .cat p{
+       text-indent:2em;
+       }
+       .part{
+          position:fixed;
+          left: 27px;
+          top: 261px;
+          width: 108px;
+          height: 302px;
+          cursor: pointer;
+		}
+       .part li{
+          height:50px;
+          background:#ACECEE;
+          margin-top:20px;
+          text-align:center;
+          line-height:50px;
+       }
+       .fg{
+          height:120px;
+          position:relative;
+       }
+       .fg #fg1{
+         width: 100px;
+		height: 70px;
+		line-height: 70px;
+		text-align: center;
+		font-size: 30px;
+		position: absolute;
+		left: 215px;
+		top: 39px;
+         
+       }
+       .fg #fg2{
+        width: 80%;
+		border: 1px solid red;
+		margin: auto;
+		position: absolute;
+		top: 110px;
+		left: 118px;
+       }
+       
+ .d3{
+	height:45px;
+}
+ .d3 ul{
+	width:50%;
+	list-style-type: none;
+	margin: 0px 416px;
+
+	
+}
+.d3 li{
+	float:left;
+	margin:10px;
+}
+

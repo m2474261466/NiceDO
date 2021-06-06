@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>注册案例</title>
+</head>
+<link href="css/register.css" rel="stylesheet" >     
+<script type="text/javascript" src="javascript/register.js"></script>
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+ 
+    	 $(function(){
+    		 $("#left_box #index1").click(function(){
+        		 window.location.href="file:///F:/ykt/yktt/workspace/peopleTest/ProgramDemo/HomePage.html";
+        	 });
+    		 $("#left_box .register").click(function(){
+        		 window.location.href="file:///F:/ykt/yktt/workspace/peopleTest/ProgramDemo/register.html";
+        	 });
+    		 $("#left_box .ko").click(function(){
+        		 window.location.href="file:///F:/ykt/yktt/workspace/peopleTest/ProgramDemo/IntroduceToCat.html";
+        	 });
+    		 $("#left_box .pc").click(function(){
+        		 window.location.href="file:///F:/ykt/yktt/workspace/peopleTest/ProgramDemo/CatPicture.html";
+        	 });
+    	 });
+  
+
+ 
+</script>
+<body>
+      <div class="d0">
+          <p id="s0">喵喵酱</p>
+          <p id="s1">www.miaomiaojiang.com</p>
+          <img src="img/logo.png" id="logo">
+      </div>
+      <div  id="left_box">
+              <div class="f1">
+                  <p id="index1">首页</p>
+                  <p class="register">注册</p>
+                  <p class="ko">有趣的猫知识</p>
+                  <p class="pc" >猫猫图鉴</p>
+              </div>
+             
+   
+      </div>
+     <div class="d1" >
+           <h1>用户注册</h1>
+           <form>
+               <p id="p1">             <!-- onblur:光标离开文本框事件 -->
+                                                                      账号:<input type="text" placeholder="请输入用户名" id="user_name" onblur="checkName()"/>
+                               <span id="namespan"></span>
+               </p>
+               <p id="p2">            
+                                                                      密码:<input type="password" placeholder="请输入密码  "id="user_pwd" onblur="checkPwd()"/>
+                               <span id="pwdspan"></span>
+               </p>
+                <p id="p3">           
+                                                                      确认密码:<input type="password" placeholder="请输入确认密码 " id="user_con" onblur="checkConfirm()"/>
+                               <span id="conspan"></span>
+               </p>
+                <p id="p4">            
+                                                                      邮箱:<input type="text" placeholder="请输入邮箱" id="user_email" onblur="checkEmail()"/>
+                               <span id="emailspan"></span>
+               </p>
+                <p id="p5">             <!-- onblur:光标离开文本框事件 -->
+                                                                      手机号:<input type="text" placeholder="请输入电话"id="user_phone" onblur="checkphone()"/>
+                               <span id="phonespan"></span>
+               </p>
+           <input type="button" value="注册" onclick="register()" id="rr" />
+           </form>
+           
+     </div>
+     <div class="d2">
+               <ul >
+                   <li>版权所属:</li>
+                   <li>北京梦寻网络科技有限公司  |</li>
+                   <li>Beijing DreamLand tech CO. |</li>
+                   <li>2026-2031</li>
+               </ul>
+     </div>
+     <div class="d3">
+               <ul >
+                     <li>相关连接:</li>
+                       
+                     <li><a href="http://www.beijing.gov.cn/" id="ht3">北京市政府</a></li>
+                     <li><a href="http://www.rcw.ac.cn/bj/"  id="ht3">北京网警</a></li>
+                     <li><a href="https://www.baidu.com/"  id="ht3">百度</a></li>
+                     <li><a href="https://www.jd.com/"  id="ht3">京东</a></li>
+                     <li><a href="https://www.fmprc.gov.cn/web/"  id="ht3">外交部</a></li>
+                     <li><a href="http://www.mod.gov.cn/"  id="ht3">国防部</a></li>
+                     <li><a href="https://www.tencent.com/zh-cn" id="ht3">腾讯</a></li>
+                     <li><a href="https://xa.58.com/"  id="ht3">58同城</a></li>
+                     <li><a href="https://www.sina.com.cn/"  id="ht3">新浪</a></li>
+               </ul>      
+     </div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+body{
+	margin: 0px;
+	padding:0px;
+	
+}
+    video{
+            position: fixed;
+            right:0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+             height: auto;
+             z-index: -9999;
+        }
+  
+  
+.d1{
+	
+	width: 385px;
+	height: 247px;
+	position: relative;
+	left: 369px;
+    top: 245px;
+} 
+.d1 #mmj{
+	font-family: "»ªÎÄÐÐ¿¬";
+    font-size: 50px;
+    position: absolute;
+    left: 202px;
+    top: 35px;
+}
+.d2{
+	
+	width: 261px;
+	height: 320px;
+	position: relative;
+	left: 959px;
+	background:#FFF;
+	
+	
+}
+ .f1  input{
+	width: 148px;
+    height: 19px;
+}
+.f2  input{
+	width: 148px;
+    height: 19px;
+}
+.login{
+	border: 1px solid #e85356;
+	width: 187px;
+	background: #e4393c;
+	height: 31px;
+	line-height: 31px;
+	color: #fff;
+	font-size: 20px;
+	font-family: 'Microsoft YaHei';
+}
+.d2 .f0{
+	color: red;
+	position: absolute;
+	left: 72px;
+	font-size: 26px;
+}
+.d2 .f1{
+	position: absolute;
+	left:30px;
+	top:93px;
+}
+.d2 .f2{
+	position: absolute;
+	left:30px;
+	top:152px;
+}
+.d2 .login{
+	position:absolute;
+	left: 34px;
+    top: 229px;
+}
+
+
+.t33{
+	position: relative;
+top: 140px;
+	
+}
+
+.d3{
+			height:45px;
+		}
+		 .d3 ul{
+			width:50%;
+			list-style-type: none;
+			margin: 0px 416px;
+		
+			
+		}
+		.d3 li{
+			float:left;
+			margin:10px;
+		}
+		.d4{
+			height:45px;
+		}
+		.d4 ul{
+			width:50%;
+			list-style-type: none;
+			margin: 0px 416px;
+		
+			
+		}
+		.d4 li{
+			float:left;
+			margin:10px;
+		}
+		 #ht3{
+      
+      text-decoration:none;
+      color: black;
+      }
+
+
+
+
+
+
+
+
+
+
+
