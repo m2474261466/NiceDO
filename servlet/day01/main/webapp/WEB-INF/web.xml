@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>kunge2020Servlet_day02</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- 用户注册 -->
+  <servlet>
+    <servlet-name>register</servlet-name>
+    <servlet-class>web.RigsterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>register</servlet-name>
+     <url-pattern>/toRegister</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 查询用户数据 -->
+   <servlet>
+    <servlet-name>findUser</servlet-name>
+    <servlet-class>web.FindUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>findUser</servlet-name>
+     <url-pattern>/find</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
