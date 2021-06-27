@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 这就是spring，不要随便删 -->
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"  
+	xmlns:jee="http://www.springframework.org/schema/jee" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+	  <!-- 加载数据库连接池的配置文件：
+	         读取指定位置下的后缀为properties,spring容器会将该文件的内容存放到properties对象中，
+	       以键值对的形式保存下来。
+	       location="classpath:读取的地址"
+	   -->
+	   <util:properties id="db" location="classpath:config/db.properties"/>
+	   <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	        <property name="driverClassName" value="#{dp.drivername}"/>
+	        <property name="url" value="#{dp.Url}"/>
+	        <property name="name" value="#{dp.name}"/>
+	        <property name="password" value="#{dp.password}"/>
+	        <property name="maxActive" value="#{dp.maxActive}"/>
+	        <property name="maxWait" value="#{dp.maxWait}"/>
+	        
+	   </bean>
+</beans>
