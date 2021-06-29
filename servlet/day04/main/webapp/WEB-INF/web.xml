@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>kunge2020Servlet_day05</display-name>
+      <!-- 
+             容器（tomcat）如何处理请求资源路径
+             1.容器默认为访问的是以一个servlet，去查看web.xml，看是否有匹配的servlet
+             有三种匹配方式；
+             a.精确匹配
+                                            例如:<url-pattern>/find</url-pattern>
+             b.通配符匹配
+                                            例如:<url-pattern>/*</url-pattern>//即输入任何都可以让servlet处理请求
+             c.后缀匹配
+                                            例如:<url-pattern>*.do</url-pattern>//实际开发中后缀匹配用的最多，例如*.html即访问的是.html的servlet
+                          如何让一个servlet处理多个请求？
+                          我们采用servlet后缀匹配的方式
+             2.如果没有匹配到servlet，再去查找对应的文件，
+      
+       -->
+       <servlet>
+         <servlet-name>demo</servlet-name>
+         <servlet-class>web.servletPath</servlet-class>
+       </servlet>
+       <servlet-mapping>
+         <servlet-name>demo</servlet-name>
+         <url-pattern>*.do</url-pattern>
+       </servlet-mapping>
+</web-app>
