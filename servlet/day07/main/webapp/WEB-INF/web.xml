@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>kunge2020Servlet_day06_02</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>SomeServlet</display-name>
+    <servlet-name>SomeServlet</servlet-name>
+    <servlet-class>web.SomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SomeServlet</servlet-name>
+    <url-pattern>/some</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SomeServlet02</display-name>
+    <servlet-name>SomeServlet02</servlet-name>
+    <servlet-class>web.SomeServlet02</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SomeServlet02</servlet-name>
+    <url-pattern>/some02</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SomeServlet03</display-name>
+    <servlet-name>SomeServlet03</servlet-name>
+    <servlet-class>web.SomeServlet03</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SomeServlet03</servlet-name>
+    <url-pattern>/some03</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 设置session的时间 -->
+ <session-config>
+       <session-timeout>1</session-timeout>
+ </session-config>
+  
+  
+  
+</web-app>
