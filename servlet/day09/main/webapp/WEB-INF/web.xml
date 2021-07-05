@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>kunge2020Servlet_day08</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+   <!-- 全剧的初始化参数 -->
+  <context-param>
+       <param-name>password</param-name>
+       <param-value>1234</param-value>
+  </context-param>
+  <servlet>
+    <description></description>
+    <display-name>OneServlet</display-name>
+    <servlet-name>OneServlet</servlet-name>
+    <servlet-class>web.OneServlet</servlet-class>
+    <!-- 局部的初始化参数 -->
+    <init-param>
+      <param-name>userName</param-name>
+      <param-value>admin</param-value>
+    </init-param>
+    <!-- 配置启动加载:容器启动之后会立刻创建响应的实例,
+          文本的值大于0,值越小,优先级(优先创建实例)越高 -->
+<!--  <load-on-startup>1</load-on-startup>  -->
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OneServlet</servlet-name>
+    <url-pattern>/one</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TwoServlet</display-name>
+    <servlet-name>TwoServlet</servlet-name>
+    <servlet-class>web.TwoServlet</servlet-class>
+    <!-- 配置启动加载:容器启动之后会立刻创建响应的实例,
+           文本的值大于0,值越小,优先级(优先创建实例)越高 -->
+  <!--   <load-on-startup>2</load-on-startup> -->
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TwoServlet</servlet-name>
+    <url-pattern>/two</url-pattern>
+  </servlet-mapping>
+</web-app>
