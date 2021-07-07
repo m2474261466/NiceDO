@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>kunge2020Servlet_day08_03</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>ContextServlt</display-name>
+    <servlet-name>ContextServlt</servlet-name>
+    <servlet-class>web.ContextServlt</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ContextServlt</servlet-name>
+    <url-pattern>/context</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetDataServlet</display-name>
+    <servlet-name>GetDataServlet</servlet-name>
+    <servlet-class>web.GetDataServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetDataServlet</servlet-name>
+    <url-pattern>/get</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>synchronizedServlet</display-name>
+    <servlet-name>synchronizedServlet</servlet-name>
+    <servlet-class>web.synchronizedServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>synchronizedServlet</servlet-name>
+    <url-pattern>/synchronized</url-pattern>
+  </servlet-mapping>
+</web-app>
