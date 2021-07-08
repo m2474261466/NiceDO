@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>kunge2020Servlet_day09</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>ContextServlet</display-name>
+    <servlet-name>ContextServlet</servlet-name>
+    <servlet-class>web.ContextServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ContextServlet</servlet-name>
+    <url-pattern>/context</url-pattern>
+  </servlet-mapping>
+  <!-- 配置过滤器   -->
+  <filter>
+     <filter-name>filter</filter-name>
+     <filter-class>web.CommonFilter</filter-class>
+     <!-- 设置局部参数 -->
+     <init-param>
+       <param-name>userName</param-name>
+       <param-value>admin</param-value>
+     </init-param>
+  </filter>
+  <filter-mapping>
+     <filter-name>filter</filter-name>
+     <!-- 需要过滤的地址 -->
+     <url-pattern>/context</url-pattern>
+  </filter-mapping>
+  <context-param>
+     <param-name>age</param-name>
+     <param-value>21</param-value>
+  </context-param>
+</web-app>
