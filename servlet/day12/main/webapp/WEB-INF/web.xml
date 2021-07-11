@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>kunge2020Servlet_day02</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>ActionServlet</display-name>
+    <servlet-name>ActionServlet</servlet-name>
+    <servlet-class>web.ActionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ActionServlet</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  <!-- 配置过滤器 -->
+  <filter>
+    <filter-name>filter</filter-name>   
+     <filter-class>common.CommonFilter</filter-class>
+  </filter>
+  <filter-mapping>
+     <filter-name>filter</filter-name>
+     <url-pattern>*.do</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <servlet-name>tene</servlet-name>
+    <servlet-class>common.CommonFilter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>tene</servlet-name>
+  <url-pattern>/listener</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 配置监听器 -->
+  <listener>
+     <listener-class>web.ListenerCommon</listener-class>
+  </listener>
+</web-app>
