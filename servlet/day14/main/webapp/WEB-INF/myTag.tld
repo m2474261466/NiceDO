@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+    version="2.1">
+    
+  <description>JSTL 1.1 core library</description>
+  <display-name>JSTL core</display-name>
+  <tlib-version>1.1</tlib-version>
+  <short-name>d</short-name>
+  <uri>http://fyjz.com/core</uri>
+   <tag>
+   <!-- 标签名 -->
+    <name>date</name>
+    <!-- 负责处理该标签业务的类(全名:包名.类名) -->
+    <tag-class>web.MyDateTag</tag-class>
+    <!-- 
+                 标签内容有三个值:
+       empty:该标签没有标签体
+       JSP:该标签可以有标签体,并且标签体的内容可以用java代码，但是只有复杂标签
+       scriptless:该标签可以有标签体,但是标签体的内容不能出现java代码 
+    
+    -->
+    <body-content>empty</body-content>
+    <attribute>
+    <!-- 处理标签类的属性 -->
+        <name>pattern</name>
+    <!-- ture:该属性是一个必选的属性 -->
+        <required>true</required>
+        <!-- ture:该属性值可以动态赋值，可以使用el表达式赋值 -->
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+</taglib>
