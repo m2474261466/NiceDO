@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="fyjz.com.retailers.mapper.goodsCategory.GoodsCategoryMapper" >
+  <resultMap id="BaseResultMap" type="fyjz.com.retailers.entity.GoodsCategory" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="parent_id" property="parentId" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="sort_order" property="sortOrder" jdbcType="INTEGER" />
+    <result column="is_parent" property="isParent" jdbcType="INTEGER" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="modified_time" property="modifiedTime" jdbcType="TIMESTAMP" />
+    <result column="created_user" property="createdUser" jdbcType="VARCHAR" />
+    <result column="modified_user" property="modifiedUser" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, parent_id, name, status, sort_order, is_parent, created_time, modified_time, 
+    created_user, modified_user
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_goods_category
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_goods_category
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="fyjz.com.retailers.entity.GoodsCategory" >
+    insert into t_goods_category (id, parent_id, name, 
+      status, sort_order, is_parent, 
+      created_time, modified_time, created_user, 
+      modified_user)
+    values (#{id,jdbcType=BIGINT}, #{parentId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{sortOrder,jdbcType=INTEGER}, #{isParent,jdbcType=INTEGER}, 
+      #{createdTime,jdbcType=TIMESTAMP}, #{modifiedTime,jdbcType=TIMESTAMP}, #{createdUser,jdbcType=VARCHAR}, 
+      #{modifiedUser,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="fyjz.com.retailers.entity.GoodsCategory" >
+    insert into t_goods_category
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="sortOrder != null" >
+        sort_order,
+      </if>
+      <if test="isParent != null" >
+        is_parent,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="modifiedTime != null" >
+        modified_time,
+      </if>
+      <if test="createdUser != null" >
+        created_user,
+      </if>
+      <if test="modifiedUser != null" >
+        modified_user,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="sortOrder != null" >
+        #{sortOrder,jdbcType=INTEGER},
+      </if>
+      <if test="isParent != null" >
+        #{isParent,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedTime != null" >
+        #{modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdUser != null" >
+        #{createdUser,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedUser != null" >
+        #{modifiedUser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="fyjz.com.retailers.entity.GoodsCategory" >
+    update t_goods_category
+    <set >
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="sortOrder != null" >
+        sort_order = #{sortOrder,jdbcType=INTEGER},
+      </if>
+      <if test="isParent != null" >
+        is_parent = #{isParent,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedTime != null" >
+        modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdUser != null" >
+        created_user = #{createdUser,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedUser != null" >
+        modified_user = #{modifiedUser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="fyjz.com.retailers.entity.GoodsCategory" >
+    update t_goods_category
+    set parent_id = #{parentId,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      sort_order = #{sortOrder,jdbcType=INTEGER},
+      is_parent = #{isParent,jdbcType=INTEGER},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+      created_user = #{createdUser,jdbcType=VARCHAR},
+      modified_user = #{modifiedUser,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <!-- 根据父类ID查询商品数据 -->
+  <select id="findGoodsCategoryByParentID" resultMap="BaseResultMap">
+  	select 
+  		<include refid="Base_Column_List" />
+  	from t_goods_category where parent_id=#{pid}
+  	<!-- 动态mysql：可以灵活的去处理查看一些数据 -->
+  	<if test="start!=null and pageSize!=null">
+  		limit #{start},#{pageSize}
+  	</if> 	
+  </select>
+  
+</mapper>

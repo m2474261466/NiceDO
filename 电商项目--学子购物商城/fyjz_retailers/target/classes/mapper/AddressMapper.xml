@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="fyjz.com.retailers.mapper.address.AddressMapper" >
+  <resultMap id="BaseResultMap" type="fyjz.com.retailers.entity.Address" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="recv_username" property="recvUsername" jdbcType="VARCHAR" />
+    <result column="recv_provinceCode" property="recvProvincecode" jdbcType="VARCHAR" />
+    <result column="recv_cityCode" property="recvCitycode" jdbcType="VARCHAR" />
+    <result column="recv_areaCode" property="recvAreacode" jdbcType="VARCHAR" />
+    <result column="recv_district" property="recvDistrict" jdbcType="VARCHAR" />
+    <result column="recv_address" property="recvAddress" jdbcType="VARCHAR" />
+    <result column="recv_phone" property="recvPhone" jdbcType="VARCHAR" />
+    <result column="recv_tel" property="recvTel" jdbcType="VARCHAR" />
+    <result column="recv_zip" property="recvZip" jdbcType="VARCHAR" />
+    <result column="recv_tag" property="recvTag" jdbcType="VARCHAR" />
+    <result column="is_default" property="isDefault" jdbcType="INTEGER" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="modified_user" property="modifiedUser" jdbcType="VARCHAR" />
+    <result column="modified_time" property="modifiedTime" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, uid, recv_username, recv_provinceCode, recv_cityCode, recv_areaCode, recv_district, 
+    recv_address, recv_phone, recv_tel, recv_zip, recv_tag, is_default, create_user, 
+    create_time, modified_user, modified_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_address
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_address
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="fyjz.com.retailers.entity.Address" >
+    insert into t_address (id, uid, recv_username, 
+      recv_provinceCode, recv_cityCode, recv_areaCode, 
+      recv_district, recv_address, recv_phone, 
+      recv_tel, recv_zip, recv_tag, 
+      is_default, create_user, create_time, 
+      modified_user, modified_time)
+    values (#{id,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{recvUsername,jdbcType=VARCHAR}, 
+      #{recvProvincecode,jdbcType=VARCHAR}, #{recvCitycode,jdbcType=VARCHAR}, #{recvAreacode,jdbcType=VARCHAR}, 
+      #{recvDistrict,jdbcType=VARCHAR}, #{recvAddress,jdbcType=VARCHAR}, #{recvPhone,jdbcType=VARCHAR}, 
+      #{recvTel,jdbcType=VARCHAR}, #{recvZip,jdbcType=VARCHAR}, #{recvTag,jdbcType=VARCHAR}, 
+      #{isDefault,jdbcType=INTEGER}, #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, 
+      #{modifiedUser,jdbcType=VARCHAR}, #{modifiedTime,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="fyjz.com.retailers.entity.Address" >
+    insert into t_address
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="recvUsername != null" >
+        recv_username,
+      </if>
+      <if test="recvProvincecode != null" >
+        recv_provinceCode,
+      </if>
+      <if test="recvCitycode != null" >
+        recv_cityCode,
+      </if>
+      <if test="recvAreacode != null" >
+        recv_areaCode,
+      </if>
+      <if test="recvDistrict != null" >
+        recv_district,
+      </if>
+      <if test="recvAddress != null" >
+        recv_address,
+      </if>
+      <if test="recvPhone != null" >
+        recv_phone,
+      </if>
+      <if test="recvTel != null" >
+        recv_tel,
+      </if>
+      <if test="recvZip != null" >
+        recv_zip,
+      </if>
+      <if test="recvTag != null" >
+        recv_tag,
+      </if>
+      <if test="isDefault != null" >
+        is_default,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="modifiedUser != null" >
+        modified_user,
+      </if>
+      <if test="modifiedTime != null" >
+         modified_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="recvUsername != null" >
+        #{recvUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="recvProvincecode != null" >
+        #{recvProvincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="recvCitycode != null" >
+        #{recvCitycode,jdbcType=VARCHAR},
+      </if>
+      <if test="recvAreacode != null" >
+        #{recvAreacode,jdbcType=VARCHAR},
+      </if>
+      <if test="recvDistrict != null" >
+        #{recvDistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="recvAddress != null" >
+        #{recvAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="recvPhone != null" >
+        #{recvPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="recvTel != null" >
+        #{recvTel,jdbcType=VARCHAR},
+      </if>
+      <if test="recvZip != null" >
+        #{recvZip,jdbcType=VARCHAR},
+      </if>
+      <if test="recvTag != null" >
+        #{recvTag,jdbcType=VARCHAR},
+      </if>
+      <if test="isDefault != null" >
+        #{isDefault,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="modifiedUser != null" >
+        #{modifiedUser,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedTime != null" >
+        #{modifiedTime,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="fyjz.com.retailers.entity.Address" >
+    update t_address
+    <set >
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="recvUsername != null" >
+        recv_username = #{recvUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="recvProvincecode != null" >
+        recv_provinceCode = #{recvProvincecode,jdbcType=VARCHAR},
+      </if>
+      <if test="recvCitycode != null" >
+        recv_cityCode = #{recvCitycode,jdbcType=VARCHAR},
+      </if>
+      <if test="recvAreacode != null" >
+        recv_areaCode = #{recvAreacode,jdbcType=VARCHAR},
+      </if>
+      <if test="recvDistrict != null" >
+        recv_district = #{recvDistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="recvAddress != null" >
+        recv_address = #{recvAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="recvPhone != null" >
+        recv_phone = #{recvPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="recvTel != null" >
+        recv_tel = #{recvTel,jdbcType=VARCHAR},
+      </if>
+      <if test="recvZip != null" >
+        recv_zip = #{recvZip,jdbcType=VARCHAR},
+      </if>
+      <if test="recvTag != null" >
+        recv_tag = #{recvTag,jdbcType=VARCHAR},
+      </if>
+      <if test="isDefault != null" >
+        is_default = #{isDefault,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=DATE},
+      </if>
+      <if test="modifiedUser != null" >
+        modified_user = #{modifiedUser,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedTime != null" >
+        modified_time = #{modifiedTime,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="fyjz.com.retailers.entity.Address" >
+    update t_address
+    set uid = #{uid,jdbcType=INTEGER},
+      recv_username = #{recvUsername,jdbcType=VARCHAR},
+      recv_provinceCode = #{recvProvincecode,jdbcType=VARCHAR},
+      recv_cityCode = #{recvCitycode,jdbcType=VARCHAR},
+      recv_areaCode = #{recvAreacode,jdbcType=VARCHAR},
+      recv_district = #{recvDistrict,jdbcType=VARCHAR},
+      recv_address = #{recvAddress,jdbcType=VARCHAR},
+      recv_phone = #{recvPhone,jdbcType=VARCHAR},
+      recv_tel = #{recvTel,jdbcType=VARCHAR},
+      recv_zip = #{recvZip,jdbcType=VARCHAR},
+      recv_tag = #{recvTag,jdbcType=VARCHAR},
+      is_default = #{isDefault,jdbcType=INTEGER},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=DATE},
+      modified_user = #{modifiedUser,jdbcType=VARCHAR},
+      modified_time = #{modifiedTime,jdbcType=DATE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getAllAddressMapper" parameterType="int" resultMap="BaseResultMap">
+   select 
+    <include refid="Base_Column_List" />
+    from t_address
+    where uid=#{uid} order by is_default DESC;
+  </select>
+  
+  <select id="selectAddressByIdMapper" parameterType="int" resultMap="BaseResultMap">
+    select 
+     <include refid="Base_Column_List" />
+    from t_address
+    where id=#{id};
+  </select>
+  
+  <update id="toChangeAllIsDefaultAddress" parameterType="int" >
+    update t_address set is_default=0 where uid=#{uid};
+  </update>
+  
+  <update id="toChangeIsDefaultAddress" parameterType="int" >
+      update t_address set is_default=1  where id=#{id};
+  </update>
+  
+</mapper>

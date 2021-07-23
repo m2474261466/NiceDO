@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" 
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ 
+<!-- 映射文件 -->
+<!-- namespace：命名空间，指的是映射器的全名（包名.类名） -->
+<mapper namespace="fyjz.com.retailers.mapper.user.UserMapper">
+	<!-- 处理实体类字段和数据库字段不一致 -->
+	<resultMap type="fyjz.com.retailers.entity.User" id="rm">
+		<result property="id" column="id"/>
+		<result property="userName" column="username"/>
+		<result property="password" column="password"/>
+		<result property="email" column="email"/>
+		<result property="gender" column="gender"/>
+		<result property="phone" column="phone"/>		
+		<result property="image" column="image"/>
+		<result property="createUser" column="create_user"/>
+		<result property="createTime" column="create_time"/>
+		<result property="modifiedUser" column="modified_user"/>
+		<result property="modifiedTime" column="modified_time"/>
+	</resultMap>
+
+	<!--  根据用户名字查找该名字的数量  -->
+	<select id="findNumByNameMapper" parameterType="string" resultType="int">
+		select count(username) from t_user where username=#{name};
+	</select>
+	
+	<!-- 用户注册 -->
+	<insert id="addUserMapper" parameterType="fyjz.com.retailers.entity.User">
+		insert into t_user 
+			(username,
+			password,
+			email,
+			phone,
+			create_user,
+			create_time,
+			modified_user,
+			modified_time)
+		values(#{userName},#{password},#{email},#{phone},#{userName},now(),#{userName},now());
+	</insert>
+	
+	<!-- 用户登录 -->
+	<select id="findUserByNameAndPwdMapper" resultMap="rm">
+		select * from t_user where username=#{name} and password=#{pwd};
+	</select>
+	
+	<update id="updateUserMapper" parameterType="fyjz.com.retailers.entity.User">
+    update t_user 
+    <set >
+      <if test="image != null" >
+        image = #{image},
+      </if>
+      <if test="username != null" >
+        username = #{userName},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone},
+      </if>
+      <if test="email != null" >
+        email = #{email},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+	
+	
+	
+</mapper>

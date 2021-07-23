@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="fyjz.com.retailers.mapper.goods.GoodsMapper" >
+  <resultMap id="BaseResultMap" type="fyjz.com.retailers.entity.Goods" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="category_id" property="categoryId" jdbcType="BIGINT" />
+    <result column="item_type" property="itemType" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="sell_point" property="sellPoint" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="BIGINT" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="barcode" property="barcode" jdbcType="VARCHAR" />
+    <result column="image" property="image" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="priority" property="priority" jdbcType="INTEGER" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="modified_time" property="modifiedTime" jdbcType="TIMESTAMP" />
+    <result column="created_user" property="createdUser" jdbcType="VARCHAR" />
+    <result column="modified_user" property="modifiedUser" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, category_id, item_type, title, sell_point, price, num, barcode, image, status, 
+    priority, created_time, modified_time, created_user, modified_user
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_goods
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_goods
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="fyjz.com.retailers.entity.Goods" >
+    insert into t_goods (id, category_id, item_type, 
+      title, sell_point, price, 
+      num, barcode, image, 
+      status, priority, created_time, 
+      modified_time, created_user, modified_user
+      )
+    values (#{id,jdbcType=VARCHAR}, #{categoryId,jdbcType=BIGINT}, #{itemType,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{sellPoint,jdbcType=VARCHAR}, #{price,jdbcType=BIGINT}, 
+      #{num,jdbcType=INTEGER}, #{barcode,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{priority,jdbcType=INTEGER}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{modifiedTime,jdbcType=TIMESTAMP}, #{createdUser,jdbcType=VARCHAR}, #{modifiedUser,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="fyjz.com.retailers.entity.Goods" >
+    insert into t_goods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="categoryId != null" >
+        category_id,
+      </if>
+      <if test="itemType != null" >
+        item_type,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="sellPoint != null" >
+        sell_point,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="barcode != null" >
+        barcode,
+      </if>
+      <if test="image != null" >
+        image,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="priority != null" >
+        priority,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="modifiedTime != null" >
+        modified_time,
+      </if>
+      <if test="createdUser != null" >
+        created_user,
+      </if>
+      <if test="modifiedUser != null" >
+        modified_user,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryId != null" >
+        #{categoryId,jdbcType=BIGINT},
+      </if>
+      <if test="itemType != null" >
+        #{itemType,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="sellPoint != null" >
+        #{sellPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=BIGINT},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="barcode != null" >
+        #{barcode,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null" >
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="priority != null" >
+        #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedTime != null" >
+        #{modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdUser != null" >
+        #{createdUser,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedUser != null" >
+        #{modifiedUser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="fyjz.com.retailers.entity.Goods" >
+    update t_goods
+    <set >
+      <if test="categoryId != null" >
+        category_id = #{categoryId,jdbcType=BIGINT},
+      </if>
+      <if test="itemType != null" >
+        item_type = #{itemType,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="sellPoint != null" >
+        sell_point = #{sellPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=BIGINT},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="barcode != null" >
+        barcode = #{barcode,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null" >
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="priority != null" >
+        priority = #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedTime != null" >
+        modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdUser != null" >
+        created_user = #{createdUser,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedUser != null" >
+        modified_user = #{modifiedUser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="fyjz.com.retailers.entity.Goods" >
+    update t_goods
+    set category_id = #{categoryId,jdbcType=BIGINT},
+      item_type = #{itemType,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      sell_point = #{sellPoint,jdbcType=VARCHAR},
+      price = #{price,jdbcType=BIGINT},
+      num = #{num,jdbcType=INTEGER},
+      barcode = #{barcode,jdbcType=VARCHAR},
+      image = #{image,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      priority = #{priority,jdbcType=INTEGER},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+      created_user = #{createdUser,jdbcType=VARCHAR},
+      modified_user = #{modifiedUser,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <!-- 根据商品的分类ID获取相关商品 -->
+  <select id="findGoodsByCategoryId" resultMap="BaseResultMap">
+  	select 
+		 <include refid="Base_Column_List" />
+ 	from t_goods 
+ 	where category_id=#{cid} and status=1 and num>=1 order by priority desc
+ 	<if test="start!=null and pageSize != null">
+ 		limit #{start},#{pageSize};
+ 	</if>	
+  </select>
+  
+  <!-- 根据分类id去查询商品的总数量 -->
+  <select id="findGoodsNumByCategoryId" parameterType="long" resultType="java.lang.Integer">
+  	select count(id) from t_goods where category_id=#{cid};
+  </select>
+  
+  <!-- 根据商品的分类id查找分类的名字 -->
+  <select id="findCategoryNameByGoodsCategoryId" parameterType="long" resultType="java.lang.String">
+  	select distinct(c.name) from t_goods g join t_goods_category c on g.category_id=c.id 
+  	where g.category_id=#{cid};
+  </select>
+  
+  <!-- 根据商品id查询库存数量 -->
+  <select id="findGoodsNumById" parameterType="int" resultType="int">
+  	select num from t_goods where id=#{id};
+  </select>
+  
+  <!-- 根据商品id修改库存量 -->
+  <update id="updateCartItemNumByIdMapper">
+  		update t_goods set num=num-#{n} where id=#{id};
+  </update>
+  
+  
+</mapper>
