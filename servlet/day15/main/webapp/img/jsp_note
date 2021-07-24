@@ -1,0 +1,27 @@
+<!-- 如何在jsp页面中编写java片段代码 -->
+      <!--  1.第一种形式编写java片段代码   语法<% %>-->
+      <!-- 2.第二种形式编写java代码的表达式 -->
+      
+      
+jsp的九个隐藏对象:
+   在jsp文件里，直接可以使用的对象，都是隐藏对象
+   ，例如：out,request,response,session,page,pageContect,Exception,config,application
+  
+  为什么会被容器直接使用这些对象？ 
+原因:jsp会被容器(tomcat)转换成对应的Servlet，在转换过程中，容器会自动添加获得这些对象的代码
+    
+
+指令:
+page指令import属性:指要导入的包名，如果多个包名可以用逗号隔开
+   
+   
+   
+ <!-- 加密解码的工具包,支持多种运算方式 -->
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.10</version>
+     </dependency>
+   
+   
+   
