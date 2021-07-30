@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>表单</title>
+</head>
+<body>
+            <!-- 1.表单元素：用来声明表单的范围，只有在此范围内的数据才能提交给服务器；
+            action：声明表单提交的目的（地址）；
+            method：声明表单提交的方式（get/post）
+             -->
+            <!--  2.表单控件：用来输入数据-->
+            <!--  3.input标签元素，它们的type(类型)属性不同-->
+            <form action="#">
+                      <!--  3.1文本框-->
+                      <!-- 
+                      #表示不能跳转
+                      value为文本框里的默认值 
+                      maxlength:最大输入长度
+                      readonly：只读
+                      placeholder:提示输入文本内容
+                      <br>换行
+                      -->
+                      <input type ="text" value="a" maxlength="8" readonly/><br>
+                     账号：<input input type ="text" maxlength="8"  name="username"placeholder="请输入邮箱/账号"  /><br>
+                      
+                      <!-- 3.2密码框 -->
+                      密码：<input type="password"/>
+                      
+                      <!--  3.3单选框
+                      name:组名（一组的name都要相同），同名的radio就是一组互斥关系
+                      vlaue:提交表单后给服务器的数据
+                      radio:单选框
+                      checked：设置默认选中
+                      -->
+                      <p>
+                          <input type="radio" value="1" name="sex"/>男
+                          <input type="radio" value="0" name="sex"  checked />女
+                      </p>
+                      
+                      <!-- 3.4 多选框 
+                      
+                      -->
+                      <p>
+                      爱好：
+                      <input type="checkbox" value="1" >篮球
+                      <input type="checkbox" value="2"  checked>动漫
+                      <input type="checkbox" value="3" >足球
+                      <input type="checkbox" value="4" checked>台球
+                      </p>
+                      
+                      
+                      <!--  隐藏框
+                      隐藏框不占空间
+                      -->
+                      该部分隐藏了；<input type="hidden" value="隐藏"/>呵呵
+                      
+                      <!--  2.5 文件框-->
+                     
+                      <p>
+                       <input type="file"/>
+                      </p>
+                      
+                      <!--  2.6 按钮
+                      submit :提交form表单按钮
+                      button：普通按钮
+                      reset:重置按钮,恢复表单的默认值
+                      -->
+                      <p>
+                      <input type="submit" value="注册"/>
+                      <input type="button" value="普通按钮"/>
+                      <input type="reset" value=“重置”/>
+                      
+                      
+                      </p>
+                      
+                      <!-- 2.7 label:用来管理表单中的文字，可以将文字和控件绑定为一个整体 ，从而增加看空间的范围-->
+                      <p>
+                           <input type="checkbox" id="c"/>
+                           <label for="c">我已阅读并自愿遵守此协议</label>
+                      </p>
+                      
+                      
+              <!-- 下拉选:
+               selected:设置默认选中
+               value：将数据提供给服务端
+                -->
+               省：
+               <select >
+		                    <option  value="0">--请选择--</option>
+		                   <option  value="1">陕西省</option>
+		                   <option value="2"   selected="selected">四川省</option>
+		                   <option value="3">广东省</option>
+		                   <option value="4">浙江省</option>
+               </select><br>
+                      
+                   <!--  文本域
+                   style="resize:none"禁止拉伸
+                   -->
+                      备注：<textarea  style="resize:none" rows="10" cols="30"></textarea>
+                      
+            </form>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!-- 声明网页的版本  -->
+<!DOCTYPE html>
+<!-- HTML：超文本标记语言，可以将HTML理解为标签固定的XML -->
+<!-- html：唯一的根元素（根标签） -->
+<html>
+<!-- 页面的头标签 此处写网页的基本声明 -->
+<head>
+<!-- 声明网页的编码 -->
+<meta charset="UTF-8">
+<!-- 声明网页的标题 -->
+<title>  你说这是啥网页 </title>
+</head>
+<!-- 网页的内容 -->
+<body>   
+       <!-- 锚点 -->
+       <a name="mao">锚点</a>
+      <!-- 1.标题标签 -->
+      <h1>  标签1 </h1>
+      <h2>  标签2</h2>
+      <h3>  标签3</h3>
+      <h4>  标签4 </h4>
+      <h5>  标签5 </h5>
+      <h6>  标签6 </h6>
+      
+      <!-- 2.段落标签 -->
+      <p>坤哥当年可以是个美男子啊，啊哈哈哈哈</p> 
+      <p>曾经谈过很多女朋友，呵呵呵隔</p>
+      
+      <!-- 3.列表
+      3.1 有序列表<ol></ol>嵌套标签（元素标签）<li></li> 
+      
+       -->
+       <ol>
+       <li>陕西省</li>
+       <li>四川省</li>
+       <li>云南省</li>
+       </ol>
+       
+      <!--3.2 无序标签 <ul></ul>  -->
+      <ul>
+      <li>香港</li>
+      <li>澳门</li>
+      <li>台湾</li>
+     </ul>
+     
+     <!-- 3.3 嵌套列表 -->
+     <ol>
+     <li>四川
+         <ul>
+            <li>广汉</li>
+            <li>攀枝花</li>
+            <li>新津</li>
+          </ul>
+       </li>
+     <li>陕西省
+        <ul>
+             <li>汉中</li>
+             <li>西安</li>
+             <li>榆林</li>
+          </ul>
+       </li>
+     <li>云南
+        <ul>
+              <li>昆明</li>
+              <li>大理</li>
+          </ul>
+       </li>
+     </ol>
+      
+   <!-- 4 块元素 ps:整体哦 -->   
+    <div>
+    <p>西安工程大学</p>
+    <p>西安电子科技大学</p>
+    </div>
+    <div>
+    <p>西安科技大学</p>
+    </div>
+    
+    <!--5 行内元素  -->
+    <!-- i斜体 b 加粗 u 下划线   <span> 标签被用来组合文档中的行内元素。-->
+    <p>陕西省<i>西安市</i><b>临潼区</b><u>芷杨欣苑15号楼</u></a><span style="color:red " ><b>陕西风云九州网络科技有限公司</b></span></p>
+    
+    <!-- 6 空格 -->
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;那是一个晚上&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们开始了</p>
+    <p>她和我一起讨论了未来</p>
+    
+    <!-- 7 图片 src:引用地址 
+     7.1绝对路径：从盘符开始写出图片存放的完整路径，例如D:/day01/background.png
+     这种方式将路径写死，一旦程序上线时，用户要求更改路径甚至操作系统，那就找不到对应的资源；
+     相对路径：写出图片和网页的相对位置，程序上线时，将整个项目拷贝给用户，他们的相对位置不变
+     ../ :指上一级
+     
+    -->
+    <img style="width: 1000px ;height: 400px" src="background.png" title="background"/img>
+    
+    <!-- 8 超链接  
+    
+    打开新的窗体
+    //--------JS
+window.open()
+
+window.open(pageURL,name,parameters)
+其中：
+pageURL 为子窗口路径
+name 为子窗口句柄
+parameters 为窗口参数(各参数用逗号分隔)
+
+//--------链接
+<a href="" target="_blank">啊啊啊</a>
+其中的target定义的为打开方式
+
+网页打开方式有以下几种：
+_self、_top、_blank、_parent 和网页默认值
+
+1.第1和第5种情况是相同的，_self表示“相同窗口”。点击链接后，地址栏不变。在网页中没有做<base>设置时，网页链接默认的窗口为_self。
+
+2.第2和第4种情况，也是相同的。_top表示整页窗口，_parent表示父窗口。实际使用中，它们没有任何区别，地址栏会变化。 
+    
+    
+    -->
+    <a href="https://www.baidu.com">百度</a>
+     <a href="https://www.baidu.com"   target="_blank">华为......................</a>
+     
+     <p></p>
+     <!--  8.链接到锚点-->
+     <a href="#mao">连接到锚点</a>
+     <!-- 8.2 网页的顶部默认就是锚点 该锚点没有名字 -->
+     <a href="#">回到未来</a>
+     
+     <!--  9.表格
+     <table></table>
+     <tr></tr>行
+     <td></td>列
+     <th></th>列
+     td/th:表格中的列，其中th是剧中加粗
+     border:边框像素
+     cellspacing:边框间距
+     -->
+     <table  border="1"   cellspacing="0"  width="50%">
+            <tr>
+            <!-- rowspan:合并行数 -->
+                 <td  rowspan="2">第一行第一列</td>
+                 <td>第一行第二列</td>
+            </tr>
+            <tr>
+         <!--    <td>第二行第一列</td> -->
+            <td>第二行第二列</td>
+            </tr>
+     </table>
+     
+     <p></p>
+
+ <table  border="1"   cellspacing="0"  width="50%">
+            <tr>
+           <!-- colspan:合并列数-->
+                 <td colspan="2" >第一行第一列</td>
+                 <td  >第一行第二列</td>
+            </tr>
+            <tr>
+                 <td>第二行第一列</td> 
+                 <!--  <td>第二行第二列</td> -->
+            </tr>
+            </table>
+            
+            
+         <p></p>
+         
+         <!--  表格的三个部分内容：表头，表主体，表尾-->
+     <table  border="1"   cellspacing="0"  width="50%">
+            <!-- thead: 表头  -->
+            <thead>
+                <tr>
+                 <th >产品</th>
+                 <th  >价格</th>
+               </tr>
+            </thead>
+            <!-- thead: 表主体  -->
+          <tbody>
+              <tr>
+                 <td>罗技键盘</td> 
+                 <td>100</td>
+              </tr>
+               <tr>
+                 <td>罗技鼠标</td> 
+                 <td>130</td>
+            </tr>
+         </tbody>
+         <!-- tfoot: 表尾  -->
+         <tfoot>
+            <tr>
+                 <td>合计</td>
+                 <td>230</td>
+             </tr>
+          </tfoot>
+     </table>
+       
+       
+       
+       <!--  缩进-->
+       <p style="text-indent: 2em">今天天气不错，我去找我女朋友了</p>
+       <p>我们去了很多地方</p>
+       
+       <!-- 文字剧中 -->
+        <div align="center">完毕</div>
+
+
+
+    </body>
+</html>
