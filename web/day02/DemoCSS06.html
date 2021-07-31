@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style type="text/css">
+    body{
+    /* 背景图 */
+     background-image:url(images/02.png);
+     /* 背景图铺满纵轴 */
+     background-repeat:repeat-y;
+     /* 背景图铺满横轴 */
+     background-repeat:repeat-x;
+     
+     /* 采取简化的方式设置背景图*/
+           /*  背景颜色    图片                                            平铺              位置   */
+     background:green url(3.jpg) repeat-y right;
+      background-attachment:fixed;
+    }
+ 
+
+
+
+ div{
+    background:red url(images/04.png) repeat-x top;
+    width:150px;
+    height:150px;
+    border:2px solid red;
+    margin:0px auto;
+    margin-bottom:10px;
+   }
+  
+  #p{
+     background:black;
+     width:200px;
+     height:200px;
+     line-height:200px;/* 文本在高度中间 */
+     text-align:center;/* 文本在行中间 */
+     margin:0px auto;
+  }
+
+  
+  
+  
+  
+</style>
+<body>
+       <div></div>
+       <div></div>
+       <div></div>
+       <div></div>
+       <div></div>
+       <div></div>
+        <p  id="p"><a href="#">回到顶部</a></p>
+       <div></div>
+       <div></div>
+      
+</body>
+</html>

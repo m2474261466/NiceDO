@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS(Cascading Style Sheets 级联样式表)的使用</title>
+<!--  2.内部样式：在head内部或者外部的style标签中写样式-->
+<style type="text/css">
+/*这是style中的注释  */
+        p{
+          color:blue;
+        }
+        div{
+        color:black;
+        }
+</style>
+<!--  3.外部模式：在独立的css文件内写样式，这时需要引进相关的css文件-->
+<link href="DemoCss.css"rel="stylesheet">
+</head>
+<body>
+       			<h1>CSS的使用</h1> 
+       			<p>CSS 的三种方式</p>
+       			<!--1.内联样式：在标签内直接写样式  -->
+       			<p style="color:red;font: monospace;">1.内嵌样式：    在标签内直接写样式  </p>
+       			<p>2.内部样式：  在head内部或者外部的style标签中写样式</p>
+       			<p>3.外部样式:       在独立的css文件内写样式，这时需要引进相关的css文件</p>
+       			<h3>css相当于我们生活中的化妆品</h3>
+       			<h3>css三种样式的区别</h3>
+       			<p>1.内联样式无法复用</p>
+       			<p>2.内部样式可以在当前网页复用</p>
+       			<p>3.外部样式可以在所有网页复用</p>
+       			
+       			<div style="color: windowframe;">css三种样式的优先级</div>
+       			<!--  优先级-->
+       			<p>优先级顺序：内联样式，外部样式，内部样式</p>
+       			
+
+</body>
+</html>

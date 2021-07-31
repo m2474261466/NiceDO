@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS的规则特性</title>
+<style type="text/css">
+ /*  1.继承性：父元素的格式被子元素继承*/
+                 body{
+                 font-family: "华文楷体";
+                 color:highlighttext;
+                 }
+ /* 2. 层叠性：给一个元素增加不同的声明，效果会叠加*/
+ div{
+   font-size:50px;
+ }
+ /*3.优先级：给一个元素增加相同的样式声明，效果以后者为准，也就是就近原则  */
+div{
+     color:black;
+}
+</style>
+<!-- <link href="DemoCSS.css"rel="stylesheet"> -->
+</head>
+<body>
+            <div><p>西安</p></div>
+            <div>汉中</div>
+</body>
+</html>

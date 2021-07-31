@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>选择器</title>
+</head>
+<style  type="text/css">
+     /* 1.元素选择器 */
+    p{
+      font-size: 20px;
+      color:#0078D7;
+    }
+    /*2.类选择器  */
+     .P1{
+      font-size: 18px;
+      color:yellow; 
+    }
+    
+    /* 3.ID选择器 */
+      #P2{
+      color:black;
+      }
+      /* 4.组选择器 */
+      .P3,#P4{
+      color:fuchsia;
+      }
+        /* 5.1  派生选择器:选择某元素的子孙*/
+      #p5   b{
+      color: orange;
+      font-family: "华文行楷";
+      }
+      /*5.2 派生选择器: 选择某元素的儿子  */
+      #p5 >b{
+         font-size: 30px;
+      }
+      /*6.伪类选择器：选择某状态下的元素  */
+      /*6.1 选择未访问的超链接  */
+      a:link{
+      color:green;
+      }
+      
+      /*6.2 选择已访问的超链接 */
+      a:visited {
+	  color:red;
+      }
+      
+      /* 6.3选择激活状态的按钮 */
+      #btn:active{
+      color:red;/* 字体色 */
+      background=blue;/* 背景色 */
+      }
+      
+       /* 将按钮点击时改成手型样式*/
+      #btn{
+       cursor:pointer
+      }
+      
+      /* 6.4 选择有焦距的框 */
+      .in:focus{
+         background-color:red;
+         color:green;
+      }
+      #in2:focus{
+       background-color:red;
+         color:green;
+      }
+      
+      /* 6.4选择悬停状态 */
+      img{
+         width: 100px;
+         height: 100px;
+      }
+      img:hover{
+      
+         width: 256px;
+         height:256px;
+      }
+     
+     #div01{
+        width:300px;
+        height:300px;
+        background:green;
+     }
+      
+</style>
+<body>
+              <p  class="P1">入秋天色渐微凉，草衰花败叶将黄</p>
+              <p   id="P2">中秋佳节相聚欢，他乡游子欲家还</p>
+              <p   class="P3">国庆国庆举国庆，先辈创业天下定</p>
+              <p  id="P4">思想情怀虽不减，报国热血当不忘</p>
+              <p>诗人：刘永超</p>
+              <P id="p5">陕西省<u>西安市<b>临潼区</b>芷阳新苑15号楼</u>陕西<b>风云九州</b>网络科技有限公司西安公司</P>
+              <a href="https://www.baidu.com/">百度</a>
+              <a href="F:\ykt\yktt\workspace\kunge2020web_basic\DAY02\fyjz.html">风云九州</a>
+              <input id="btn" type="button" value="注册"/>
+              <button id="btn" >登录</button>
+               
+               账号:<input class="in" type="text"/>
+               密码:<input id="in2" type="password"/><br>
+               
+      <img src="images/01.png"/>
+      <img src="images/02.png"/>
+      <img src="images/03.png"/>
+      <img src="images/04.png"/>
+               
+       <div id="div01">
+       </div>
+            
+               
+               
+               
+               
+               
+
+</body>
+</html>
