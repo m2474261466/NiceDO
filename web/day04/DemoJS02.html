@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS的基本语法</title>
+</head>
+<!-- javascript 先执行 然后执行body  因为script执行的速度比body快-->
+<script type="text/javascript">
+      /*   在<script>标签中直接写js是在页面加载时直接调用，其调用时机比<body>要早 */
+      //1.声明变量 所有类型都是var类型
+      var a;//先声明再赋值,默认值为undefined
+      a=10;//再赋值
+      console.log("a="+a);
+      
+      //2.数据类型
+      var s="hello";
+      var n=3.14;
+      var b=true;//当参加运算时为1
+      var c=false;//当参加运算时为0
+      var d=20;
+      console.log(typeof(s));//输出数据的类型
+      console.log(typeof(n));
+      console.log(typeof(b));
+      console.log(typeof(c));
+      
+      
+      //3.隐式转换
+      console.log(s+n);//hello3014
+      console.log(s+b);//hellotrue
+      console.log(n+b);//4.14
+      console.log(b+c);//1
+      console.log(n+d);
+      
+      //4.强制转换
+      console.log(parseInt(3.14));
+      console.log(parseInt("3.14"));
+      console.log(parseInt("skd"));//nan ,不是数字的意思
+      console.log(parseInt(" "));//nan,空字符串也不是数字
+      
+      //5.判断类型isNaN(); 是数字返回false,不是返回true   ！！！！！var类型！！！！！“563.2”也是数字
+      console.log(isNaN(56));//false
+      console.log(isNaN("56.2"));//false,自动转换为int
+      console.log(isNaN("sfkhd"));//true
+      console.log(isNaN(" "));//false 特例
+      
+      //6.运算符+ - * / % <  > <= >= ==   ===    !                  
+      //===首先判断值或者内容是否一样，在判断类型是否一样 即全等
+      var a=7;
+      var b="7";
+      console.log(a==b);
+      console.log(a===b);//false
+      
+      //7.条件表达式
+      /* js可以用任何数据做条件，当布尔类型做条件时，空值等价于false，非空值等价于true，
+                其中空值有：0 ,null,"",NaN,undefined这样设计是为了简化判断的逻辑 */
+       var h="";
+      if(undefined){
+    	  console.log("非空");
+      }else{
+    	  console.log("为空");
+      }
+      
+  
+</script>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>内置对象</title>
+</head>
+<script type="text/javascript">
+      //1.String
+      var str="strddede";
+      console.log(typeof(str));
+      console.log(str.length);
+      console.log(str.substring(7,8));
+      var str2="a,b,c,d,e";
+      var arr=str2.split(",");
+      console.log(arr);
+      
+      //2.Number
+      var a=3.1415926;
+      console.log(typeof(a));
+      console.log(a.toFixed(3));//保留小数点后几位(四舍五入)
+      
+      //3.Array 数组:无论用什么方式创建出来的数组，它们都是Object数组，可以存任何类型的数据
+      
+      //如何创建数组
+      var arr2=["风云",20,"男",23.3];
+     for(var i=0;i<arr2.length;i++){
+    	 console.log(arr2[i]);
+     }
+     //  var 循环下标  in 数组名
+     for(var i in arr){
+    	 console.log(arr2[i]);
+     }
+     //如何给数组添加元素
+     var arr3=new Array();
+     arr3.push("one");
+     arr3.push(1);
+     arr3.push("女");
+     arr3.push(68.89);
+     console.log(arr3);
+     
+     //倒转方法
+     var arr4=[33,5,6,8,7];
+     arr4.reverse();
+     console.log(arr4);
+     
+     //排序 sort()
+     arr4.sort();
+     console.log(arr4);
+     
+     var arr5=[2,13,20,8,1,6];
+     arr5.sort(function(a,b){//a,b类似比较器
+    	 return a-b;//a-b升序排列，b-a降序排列
+     });
+     console.log(arr5);
+     
+     //4.Math
+     var num=parseInt(Math.random()*10);
+     console.log(num);
+     
+     //5.date
+     var date1=new Date();
+     console.log(date1);
+     var date2=new Date("2020/2/14 10:10:10");
+     console.log(date2);
+     
+     //日期转换格式
+     console.log(date1.toLocaleDateString());//显示年月日  2021/3/25
+     console.log(date1.toLocaleTimeString());//显示时分秒
+     //读取时间分量
+     var y=date1.getFullYear();//获取年
+     var m=date1.getMonth()+1;//获取月
+     var d=date1.getDate();//获取日
+     var h=date1.getHours();//获取时
+     var mm=date1.getMinutes();//获取分
+     var s=date1.getSeconds();//获取秒
+     console.log(y+","+m+","+d+","+h+","+mm+","+s);
+     
+     //7.RegExp(正则表达式)
+     var s="u can u up,no can no bb";
+     var reg=/no/;
+     //校验str是否满足正则reg(字符串str内是否包含正则相匹配的字串)
+     //reg.test(string)
+     console.log(reg.test(s));
+     //exec();从字符串中找到与正则匹配的第一个字串
+     console.log(reg.exec(s));
+     //判断名字是否与正则匹配
+     var name="admin";
+     var regName=/^\w{2,6}$/;
+     if(regName.test(name)){
+    	 console.log("满足正则");
+     }else{
+    	 console.log("不满足正则");
+     }
+     //判断邮箱是否与正则匹配kun262307836@qq163.com    \转义
+     var email="kun262307836@qq163.com";
+     var regEmail=/^\w{6,18}@[a-zA-Z0-9]{3,5}\.[a-z]{2,3}$/;
+     if(regEmail.test(email)){
+    	 console.log("1");//满足
+     }else{
+    	 console.log("2");//不满足
+     }
+</script>
+<body>
+      
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>阶乘</title>
+</head>
+<script type="text/javascript">
+           function jc(){
+            	var num=document.getElementById("num").value;
+            	 var span=document.getElementById("result");
+            	 if(isNaN(num)){//不是数字
+           		   span.style.color="red";
+           		   span.innerHTML="请输入合法数字";
+           		 
+           	     }else{
+           	     if(num==0){
+           	    	 span.style.color="red";
+             		   span.innerHTML=1;
+           	     }else if(num<0){
+           	    	 span.style.color="";
+             		   span.innerHTML="负数没有阶乘";
+           	     }else{
+           	    	 var d=1;
+           	    	 for(var i=1;i<=num;i++){
+           	    		 d*=i;
+           	    	 }
+           	    	 span.style.color="green";
+             		   span.innerHTML=d;
+           	     }
+             } 
+            }
+            
+            function clearText(){
+            	//清空文本数据
+            
+            	document.getElementById("num").value="";
+            }
+           
+</script>
+<body>
+         <input type="text" id="num" onclick="clearText()"/>
+         <input type="button" value="阶乘" onclick="jc()"><span id="result"></span>
+</body>
+</html>

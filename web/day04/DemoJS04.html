@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>猜数字</title>
+</head>
+<script type="text/javascript">
+           //页面加载时生成一个随机数  不能用var c=new Random();
+          var n= parseInt(Math.random()*11);
+          console.log(n);
+          function guess(){
+        	  //1.获取文本框标签内容
+        	  var v=document.getElementById("num").value;
+        	  //2.获取span文本框标签
+        	  var span=document.getElementById("result");
+        	  //3.判断用户输入的是不是数字
+        	  if(isNaN(v)){//不是数字
+        		  span.style.color="red";
+        		  span.innerHTML="请输入合法数字";
+        		return;  
+        	  }
+        	  if(!isNaN(v)){//是数字
+        		  if(v>n){//大了
+        			  span.style.color="red";
+        		
+        			  alert("大了");
+        		  }else if(v<n){//小了
+        			  span.style.color="red";
+        			  span.innerHTML="小了";
+        		  }else{//对了
+        			  span.style.color="green";
+        			  span.innerHTML="对了";
+        			  
+        		  }
+        	  
+        	  }
+          }
+          
+
+</script>
+<body>
+        <input type="text" id="num">
+        <input type="button" value="猜吧" onclick="guess()"/><span id="result"></span>
+</body>
+</html>

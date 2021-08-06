@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>求平方</title>
+</head>
+<script type="text/javascript">
+   function pf(){
+	 //获取文本框
+	  var input=document.getElementById("num");
+	 console.log(input);
+	 //2.获取文本框中的内容
+	 var v=input.value;
+	 console.log(v);
+	 //3.获取span的标签
+	 var span=document.getElementById("result");
+	  var result=v*v;
+	  //4.判断用户输入的是不是数字
+	  if(isNaN(v)){//不是数字
+		  //给错误信息添加颜色为红色
+		  span.style.color="red";
+	      
+		  span.innerHTML="请合法输入数字...."
+	  }else{//是数字
+		  span.style.color="green";
+	  //将结果放入标签体内
+		  span.innerHTML=result;
+	  }
+   }
+</script>
+<body>
+                 <input type="text"  id="num">
+                 <input type="button" value="平方" onclick="pf()"/>=<span id="result"></spa>
+</body>
+</html>
