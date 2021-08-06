@@ -1,0 +1,153 @@
+@CHARSET "UTF-8";
+
+    *{
+      margin:0px;
+      padding:0px;
+    }
+
+.navigation{
+     width:100%;
+     background:#FFF;
+     height:150px;
+}
+.navigation>#n1{
+     width:100%;
+     height:30px;
+     background:#e3e4e5;
+     position:relative;
+
+}
+.navigation .img1{
+    width:30%;
+    height:120px;
+   
+}
+#n1>ul{
+       list-style-type:none;
+       line-height:30px;
+       width:629px;
+       position: absolute;
+       right:10%;
+       
+}
+#n1 li{
+      float:left;
+      font-size:11px;
+      color:#999;
+}
+ #n1>ul>.li1{
+    margin:0px 10px;
+ }
+#n1 li:hover{
+    color:#e33333;
+    cursor:pointer;
+}
+#n1>ul>.sx{
+         position:relative;
+         right:70%;
+}
+#n1>ul>.li2{
+      color:#E33333;
+}
+#n2>.img1{
+    position:relative;
+}
+ #n2>.img1>.p1{
+    width:100px;
+    height:100px;
+   
+    position: absolute;
+    top:10px;
+    left:65px;
+    
+  }
+ .p1>img{
+   width:100%;
+   heigth:100%;
+ }
+.navigation>#n2{
+   position:relative;
+}
+#n2{
+	position: relative;
+}
+ #n2>.text{
+      width:70%;
+      height:120px;
+
+      position:absolute;
+      top:0px;
+      left:30%;
+      
+ }
+ .text{
+    position:relative;
+ }
+ 
+ 
+   .input>#s1>input{
+       width:540px;
+       height:32px;
+       border:1.5px solid #E1251B;
+   }
+   .input>#s2{
+      color:#FFF;
+      font-size:12px;
+      background:#E1251B;
+      width:80px;
+      height:32px;
+     text-align: center;
+      line-height:32px;
+   }
+   
+   .input>p{
+     float:left;
+   }
+ .text>.input{
+      position: absolute;
+      bottom:30px;
+      
+ }
+ .input{
+     position:relative; 
+ }
+ .input>img{
+    position:absolute;
+     top: 7px;
+     left: 500px;
+ }
+#n2>img{
+	 position: absolute;
+	 top:10px;
+	 right:50px;
+}
+ 
+ .input>#s3{
+    width:80px;
+    border:1px solid #ccc;
+    height:32px;
+      text-align:center;
+      line-height:32px;
+      color:#E1251B;
+      font-size:11px;
+      margin-left:15px;
+ }
+   .discount{
+     width:500px;
+     position:absolute;
+     top:91px;
+     left:473px;
+   }
+ .discount>ul>li{
+    float:left;
+    font-size:11px;
+     color:#999;
+     margin:0px 8px;'
+ }
+  .discount>ul{
+  list-style-type:none;
+  }
+  .discount>ul>li:hover{
+     color:#E33333;
+     cursor:pointer;
+  }

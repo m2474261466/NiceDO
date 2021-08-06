@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>堆叠顺序</title>
+</head>
+<style type="text/css">
+/* 堆叠顺序z-index:值越大越靠前显示，前提是需要定位属性（ position:relative;或者 position:absolute;） */
+  
+     div{
+       border:1px solid red;
+       height:900px;
+       width:500px;
+       background:#ccc;
+       margin:0px auto;
+       position:relative;
+     
+     }
+     img{
+         width:300px;
+         height:300px;
+     }
+     div>.img1{
+          background:red;
+          position:relative;/* 定位属性 */
+          z-index:10;
+     }
+     div>.img2{
+          background:yellow;
+          position:absolute;
+          top:10%;
+          left:10%;
+          z-index:11; 
+     }
+     div>.img3{
+          background:blue;
+          position:absolute;
+          top:20%;
+          left:20%;
+     }
+     .img1:hover{
+        z-index:999;
+     }
+     .img2:hover{
+        z-index:999;
+     }
+     .img3:hover{
+        z-index:999;
+     }
+     
+     
+
+</style>
+<body>
+    <div >
+         <img src="images/01.png" class="img1" >
+         <img src="images/02.png"  class="img2">
+         <img src="images/03.png"  class="img3">
+    
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>定位</title>
+</head>
+<style type="text/css">
+   
+    .d{
+      width:300px;
+      height:300px;
+      border:2px solid red;
+      margin: 2px auto;
+      position:relative;
+      } 
+       /*  相对定位： 根据自身的位置进行上下左右偏离位置*/
+     #d1{
+     width:100px;
+     height:100px;
+     background:green;
+     /*   相对定位 */
+     position:relative;
+     top:10px;/*相对原来的位置距离上10px  */
+     left:20px;/* 相对原来的位置距离左20px */
+     } 
+     /* 绝对定位：根据父元素来决定自己的位置，除body父元素外，其余的父元素需要加position：realtive作为子元素的绝对定位的“参照物”*/
+     #d2{
+     width:100px;
+     height:100px;
+     background:green;
+     position:absolute;
+     top:50px;
+     right:60px;
+     }
+     .c{
+         width:100px;
+         height:200px;
+         background:blue;
+         background-image:url(images/02.png);
+         text-align:center;
+         line-height:200px;
+         color:white;
+         position:fixed;
+     }
+     
+     
+     
+     
+     
+ </style>
+
+<body>
+    <div class="d">
+         <div id="d1"> </div>
+         <div id="d2"></div>
+    </div>
+    <div class="c"><a href="#">回到顶部</a></div>
+         <p>的厚度我的护球红豆七万</p>
+         <p>的厚度我的护球红豆七万</p>
+         <p>的厚度我的护球红豆七万</p>
+         <p>的厚度我的护球红豆七万</p>
+         <p>的厚度我的护球红豆七万</p>
+         <p>的厚度我的护球红豆七万</p>
+         <p>的厚度我的护球红豆七万</p>
+         <p>的厚度我的护球红豆七万</p>
+         <p>的厚度我的护球红豆七万</p>
+         <p>的厚度我的护球红豆七万</p>
+         <p>的厚度我的护球红豆七万</p>
+         <p>的厚度我的护球红豆七万</p>
+         <p>的厚度我的护球红豆七万</p>
+         <p>的厚度我的护球红豆七万</p>
+         <p>的厚度我的护球红豆七万</p>
+</body>
+</html>

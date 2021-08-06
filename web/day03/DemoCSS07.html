@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>元素显示方式</title>
+</head>
+<style type="text/css">
+      /* 将块元素转换为行元素 */
+      p{
+         display:inline;/* inline不占有空间 */
+      }
+      
+      div>span{
+        /* 将行元素转换为块元素 */
+        display:block;
+      }
+      
+      div>#w{
+        /* 将元素不显示 */
+         display:none;
+      }
+     div>#w{
+        /* 将元素显示 */
+         display:block;/* block还占有一定的空间 */
+      }
+
+</style>
+<body>
+   <div>
+      <p>地图</p>
+      <p>hao123</p>
+      <p>视频</p>
+      <p>图片</p>
+      <p>学术</p>
+      <p>知道</p>
+   </div>
+   
+   
+   <div>
+       <span>陕西</span>
+       <span>四川</span>
+       <span>云南</span>
+       <span>贵州</span>
+   </div>
+   
+   
+   <div>
+      <p id="w" >将来的你一定会感谢拼命学习的自己</p>
+    
+   </div>
+   
+   
+   
+   
+   
+</body>
+</html>
