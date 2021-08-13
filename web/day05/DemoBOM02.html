@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>动态时钟</title>
+<style type="text/css">
+     #clock{
+        width:300px;
+        height:50px;
+        background:green;
+        color:#FFF;
+        text-align:center;
+        line-height:50px;
+        font-size:20px;
+        border-radius:100px;
+        /* opacity:50%;  透明度*/
+     }
+
+</style>
+</head>
+<script type="text/javascript">
+			var id;
+           function start(){
+        	   var div=document.getElementById("clock");
+        	   if(id!=null){
+        		   return;
+        	   }
+        	   id= setInterval(function(){
+        		   //获取当前时间（周期性定时器）
+        		   var date=new Date();
+        		   //日期转换格式显示时分秒
+        		   date=date.toLocaleTimeString();
+        		   div.innerHTML=date;
+        	   },1000);
+           }
+          function stop(){
+        	 if(id!=null){
+        		 clearInterval(id);
+        		 id=null;
+        	 }
+        	  
+          }
+
+</script>
+<body>
+          <input type="button" value="开始" onclick="start()">
+          <input type="button" value="停止" onclick="stop()">
+          <div id="clock"></div>
+</body>
+</html>

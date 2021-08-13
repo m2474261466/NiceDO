@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BOM</title>
+</head>
+<script type="text/javascript">
+        function f1(){
+        	window.alert("今天非常抱歉，来晚了，下次我会注意的！");
+        }
+        function f2(){
+        	//确定框 返回的是Boolean类型  如果是true则删除   是false则不
+        	var b=window.confirm("确定删除此文件嘛");
+        	if(b!=true){
+        		console.log("取消删除");
+        		return;
+        		
+        	}else{
+        		console.log("删除成功");
+        	}
+        	console.log(b);
+        }
+        function f3(){
+        	//返回所要问的答案值
+         var str=prompt("你吃早点了嘛？");
+         console.log(str);
+        }
+        function f4(){
+        	//setInterval(function(),毫秒数);
+        	//定时器必须返回一个id，如果要停止该定时器需要清除（关闭）该定时器的id
+        	//周期性定时器
+        		var n=5;
+        	var id=setInterval(function(){
+        	
+        		//每隔一秒执行一次任务
+        		console.log(n--);
+        		if(n==0){
+        			console.log("咚。。。。。。爆炸了");
+        			//清楚关闭定时器
+        			clearInterval(id);
+        			return;
+        		}
+        		
+        		
+        	},1000);
+        	/* 定时器类似线程，当前方法f4类似主线程，定时器类似支线程，而主线程与支线程是并发的，所以在自动定时器后，线程并不等待，而是向下执行，所以先输出了主线程的数据 */
+        	console.log("周期性定时器");
+        }
+        
+        
+        //一次性定时器
+        var id;//先声明
+        function f5(){
+        	//判断id如果不为空，说明定时器已经启动了，不需要再次启动
+        	if(id!=null){
+        		return;
+        	}
+        	//setTimeout(funtion(){},毫秒数);多少毫秒后所要执行的任务            到时间后只执行一次
+        	id=setTimeout(function(){
+        		console.log("一次性定时器的id"+id);
+        		console.log("当当当    下课了");
+        		id=null;
+        	},5000);
+        }
+        
+        function f6(){
+        	if(id!=null){
+        		//停止执行一次性定时器任务
+        		console.log("清除一次性定时器的id"+id);
+        		//停止执行一次性定时器任务
+            	console.log("撤回消息");
+            	clearTimeout(id);
+            	
+        	}
+        	
+        }
+        
+        
+        
+        
+</script>
+<body>
+               <!--  
+               #### BOM与DOM
+
+			- BOM：浏览器对象模型 ，用来访问和操纵浏览器窗口，使 JavaScript 有能力与浏览器“对话”
+			
+			  –通过使用BOM，可移动窗口、更改状态栏文本、执行其它不与页面内容发生直接联系的操作
+			
+			  –没有相关标准，但被广泛支持
+			
+			- DOM：文档对象模型，用来操作文档
+			
+			  –定义了访问和操作 HTML 文档的标准方法
+			
+			  –应用程序通过对 DOM 树的操作，来实现对 HTML 文档数据的操作
+               -->
+               <input type="button" value="按钮1" onclick="f1()">
+               <input type="button" value="按钮2" onclick="f2()">
+               <input type="button" value="按钮3" onclick="f3()">
+               <input type="button" value="按钮4" onclick="f4()">
+               <input type="button" value="按钮5" onclick="f5()">
+               <input type="button" value="取消" onclick="f6()">
+               
+</body>
+</html>

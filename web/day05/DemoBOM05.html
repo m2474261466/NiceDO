@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BOM对象所含有部分信息</title>
+</head>
+<script type="text/javascript">
+        //1.screen对象包含有窗口屏幕信息，常常用于获取屏幕的分辨率和色彩常用属性（了解）
+        //alert(screen.width+","+screen.height);
+        //2.history对象包含用户再浏览器中访问的地址常用属性
+           //history.back();//后退
+           //history.forward();//前进
+        
+           function forward(){
+        	   history.forward();
+           }
+        //3.location对象包含有关当前地址信息，常用于获取和改变当前浏览的网页
+        
+         function bd(){
+        	//3.1 在本网页中打开
+        	//location.href="https://www.baidu.com/";
+        	//3.2重新打卡一个新的网页
+        	open("https://www.baidu.com/");
+         }
+       //3.navigator.userAgent对象包含有关浏览器的信息，常用于获取客户端浏览的操作系统(了解)
+         function seledct(){
+    	   alert(navigator.userAgent);
+    
+        }
+           
+</script>
+<body>
+      <a href="index.html">后页面</a>
+      <button onclick="forward()">前页面</button>
+      <a onclick="bd()">百度</a>
+       <button onclick="seledct()">查看操作系统</button><!-- select是一个关键字，在input中 -->
+</body>
+</html>

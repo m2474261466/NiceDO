@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>邮件发送</title>
+<style type="text/css">
+   #messeges{
+          border:3px solid red;
+          width:200px;
+          height:40px;
+          line-height:40px;
+          text-align:center;
+   }
+</style>
+</head>
+<script type="text/javascript">
+    var id;
+     function send(){
+    	 var tr=document.getElementById("messeges");
+    	 if(id!=null){
+    		 return;
+    	 }
+    	 tr.innerHTML="发送中";
+    	 var n=5;
+    	 id=setTimeout(function(){
+    			 tr.innerHTML="已发送"
+    			 id=null;
+    	 },5000 );
+    		 
+     }
+     function cancel(){
+    	 var tr=document.getElementById("messeges");
+    	 if(id!=null){
+    		 clearInterval(id);
+    		 tr.innerHTML="已撤回";
+    		 id=null;
+    	 }
+     }
+</script>
+<body>
+            <input type="button" value="发送" onclick="send()">
+            <input type="button" value="撤回" onclick="cancel()">
+            <p id="messeges"></p>
+</body>
+</html>

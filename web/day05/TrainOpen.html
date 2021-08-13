@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>地铁开门动画</title>
+<style type="text/css">
+          
+            body{
+               margin:0px;
+               padding:0px;
+               }
+          .door{
+             width:100%;
+            height: 200px;
+             background:#FFCD41;
+            position: relative;
+          }
+         .door>#d1>.b1{
+           
+              position: absolute;
+             left: 590px;
+            }
+  .door>#d1>.b2{
+              position: absolute;
+             left: 800px;
+            }
+          
+
+</style>
+</head>
+<script type="text/javascript">
+           window.onload=function(){
+        	   var id;
+        	   var n=10px;
+        	   function leave(){
+        		   if(id!=null){
+        			   return;
+        		   }
+        		   id= setInterval(function{
+            		   var p1=document.getElementById();
+            		   
+            		   
+            	   },1000};
+        	   }
+        	   
+        	   function start(){
+        		   clearInteral(id);
+        	   }
+           };
+  
+</script>
+<body>
+          <div class="door">
+                   <div id="d1">
+                        <div class="b1">
+                        <img src="TrainImage/left.png" id="pp">
+                   
+                        </div>
+                        <div class="b2">
+                         <img src="TrainImage/right.png" id="p2">
+                        </div>
+                   </div>
+                   <div id="d2">
+                    
+                    <input type="button" value="下车" onclick="leave()">
+                    <input type="button" value="开车" onclick="start()">
+                   </div>
+          </div>
+</body>
+</html>

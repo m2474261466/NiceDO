@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>图片轮播</title>
+<style type="text/css">
+   *{
+     margin:0px;
+     padding:0px;
+   }
+   body{
+    background:#0AACDD;
+   }
+
+     div{
+       width:590px;
+       height:470px;
+       cursor:pointer;
+      margin:0px auto;
+      margin-top:15px;
+     }
+   
+     img{
+     width:100%;
+     width:100%;
+     }
+     .hide{
+     display: none;
+     }
+</style>
+</head>
+<script type="text/javascript">
+       //当页面加载完成后再执行
+       window.onload=function(){
+    	   start();
+    	   
+       };
+       //图片轮播
+       var id;
+       var n=1;
+       function start(){
+    	   //获取所有image标签
+    	   var imgs=document.getElementsByTagName("img");
+    	   //console.log(imgs);
+    	 
+    	   //周期性定时器
+    	  id=setInterval(function(){
+    		  var index=n%imgs.length;
+    		  n++;
+    		  //1.隐藏所有图片
+    		  for(var i=0;i<imgs.length;i++){
+    			  //imgs[i].style.display:none;
+    			  imgs[i].className="hide";
+    		  }
+    		  //2.根据下标显示对应的图片
+    		  //imgs[index].style.display:"inline";//显示
+    		  imgs[index].className="";
+    	  },2000);    	   
+       }
+       //图片
+       function stop(){
+    	   clearInterval(id);
+    	   
+       }
+</script>
+<body>
+<!-- onmouseover :鼠标悬停事件   onmouseout :鼠标离开事件 -->
+      <div onmouseover="stop()"  onmouseout="start()">
+                 <img src="image/1.jpg">
+                 <img   class="hide" src="image/2.jpg">
+                 <img   class="hide" src="image/3.jpg">
+                 <img   class="hide" src="image/4.jpg">
+                 <img   class="hide" src="image/5.jpg">
+                 <img   class="hide" src="image/6.jpg">
+                 <img   class="hide" src="image/7.jpg">
+                 <img   class="hide" src="image/8.jpg">
+                 
+      
+      </div>      
+</body>
+</html>
