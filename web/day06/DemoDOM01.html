@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM操作</title>
+<style type="text/css">
+
+</style>
+</head>
+<script type="text/javascript">
+          //在页面加载完成后执行
+          window.onload=function(){
+        	  //1.读写节点的名称
+        	  var c1=document.getElementById("c1");
+        	  console.log(c1)
+        	  //2.读取节点的内容:innerHTML是包含读取标签的
+        	  console.log(c1.innerHTML);
+	        	  //2.1 写节点内容
+	        	  c1.innerHTML="1.DOM操作包含<u>读写</u>操作";
+	        	 
+	        	  
+        	  
+        	  
+        	  //3.读取节点的内容：innerText是不包含读取标签的
+        	  var c2=document.getElementById("c2");
+        	  console.log(c2.innerText);
+	        	  //3.1写节点内容
+	        	  c2.innerText="2.DOM操作包含<u>查询操作</u>";
+	        	  
+        	  //4.读写节点的值
+        	     //4.1读节点的值
+        	     var but=document.getElementById("but");
+        	     var v=but.value;
+        	     console.log(v);
+        	     //4.2写节点的值
+        	     but.value="bbb";
+        	 //5.读写节点的属性
+        	     //5.1读节点属性的值
+        	     var jp1=document.getElementById("jp1");
+        	     var str=jp1.getAttribute("src");
+        	     console.log(str);
+        	     //5.2删除节点的属性
+        	     jp1.removeAttribute("src");
+        	     //5.3给对应的节点属性添加/设置一个新的值
+                 jp1.setAttribute("src","../day05/image/7.jpg");
+        	     //联系给id="c3"的标签文本添加颜色样式为红色，并且放大字体
+        	     var c3=document.getElementById("c3");
+        	     c3.setAttribute("style","color:red;font-size:30px;");
+        	     //6.通过属性名给节点添加样式
+        	     var c3=document.getElementById("p");
+        	     p.style.color="green";
+        	     
+        	     
+        	     
+          };
+</script>
+<body>
+          <div id="c1">1.DOM操作包含<b>读写</b>操作</div>
+          <div id="c2">2.DOM操作包含<b>查询操作</b></div>
+          <div id="c3">3.DOM操作包含增删操作</div> 
+          
+          <input type="button" id="but" value="aaa"><br>
+          <img id="jp1" src="../day05/image/1.jpg" width="200px"height="200px"/>
+          <p id="p">欢迎登录</p>
+</body>
+</html>

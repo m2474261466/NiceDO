@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>增加，查询，删除节点</title>
+</head>
+<script type="text/javascript">
+         //页面加载完执行
+         window.onload=function(){
+        	//根据name属性查看节点
+        	var types= document.getElementsByName("s");
+        	console.log(types);
+        	
+        	//2.根据层次查询节点
+        	var xa=document.getElementById("xa");
+        	    //2.1通过西安节点查询它的父节点
+        	    var ul=xa.parentNode;
+        	    console.log(ul);
+        	    //2.2查询ul节点下的所有子节点
+        	    var lis=ul.childNodes;
+        	    console.log(lis);
+        	    var lis2=ul.getElementsByTagName("li");
+        	    console.log(lis2);
+        	    //获取lis2节点中的第二个节点
+        	    console.log(lis2[1]);
+        	    //获取lis2节点中的第二个节点的内容
+        	    console.log(lis2[1].innerHTML);
+        	    //遍历lis2并输出所有的文本内容
+        	  for(var i=0;i<lis2.length;i++){
+        		  console.log(lis2[i].innerHTML);
+        	  }
+        	    
+        	    
+           //3.获取父节点的父节点
+           var a=document.getElementById("find");
+             var p=a.parentNode.parentNode;
+             console.log(p);
+             var p=a.parentNode;
+             p=p.parentNode;
+             console.log(p);
+             
+          //4.查询xa的兄弟节点广州
+          var xa=document.getElementById("xa");
+          var ul=xa.parentNode;
+          var li =ul.getElementsByTagName("li");
+          console.log(li[2])
+          //查询西安的所有兄弟节点
+         for(var i=0;i<li.length;i++){
+        	 if(li.innerHTML!="西安"){
+        		 console.log(li[i].innerHTML);
+        	 }
+         }
+      };
+      //在ul节点下追加子节点li，只能追加到最后
+     function  f1(){
+    	  //创建节点
+    	  var li=document.createElement("li");
+    	  li.innerHTML="香港";
+    	  //获取ul节点
+    	  var city=document.getElementById("city");
+    	  //将li子节点追加到ul节点的尾部
+    	  city.append(li);
+    	  
+      }
+      
+      //插入 在ul中插入一个节点
+      function f2(){
+    	  //创建一个节点
+    	  var li=document.createElement("li");
+    	  li.innerHTML="澳门";
+    	  //获取 id为西安的节点
+    	  var xa=document.getElementById("xa");
+    	 //获取ul节点
+    	 var ul=document.getElementById("city");
+    	 //插入到西安前，只有before没有提供after
+    	 ul.insertBefore(li,xa);
+      }
+      
+      //在ul节点删除id是xa的子节点
+      function f3(){
+    	  //获取 id为西安的节点
+    	  var xa=document.getElementById("xa");
+    	 //获取ul节点
+    	 var ul=document.getElementById("city");
+    	 //将xa节点在ul节点中删除
+    	 ul.removeChild(xa);
+      }
+
+</script>
+<body>
+          <div>
+             <input type="checkbox" name="s" />篮球
+             <input type="checkbox" name="s"/>足球
+             <input type="checkbox"  name="s"/>排球
+          </div>
+          
+          <ul id="city">
+              <li>北京</li>
+              <li>上海</li>
+              <li>广州</li>
+              <li id="xa">西安</li>
+              <li>深圳</li>
+              <li><a id="find">查询</a></li>
+          </ul>
+          <input type="button" onclick="f1()" value="追加">
+          <input type="button" onclick="f2()" value="插入">
+          <input type="button" onclick="f3()" value="删除">
+          
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>事件的定义</title>
+</head>
+<script type="text/javascript">
+            function f1(){
+            	alert("1函数");
+            }
+    //动态绑定事件，在页面加载完后执行，用js获取节点并给它绑定事件
+    window.onload=function(){
+    	//获取将要绑定事件的节点
+    	var but=document.getElementById("but");
+    	//通过js获取节点并绑定事件
+    	but.onclick=function(){
+    		alert("这是动态绑定事件");
+    	};
+    };
+    
+    
+    
+</script>
+<body>
+     <input type="button" value="按钮1" onclick="f1()"/>
+     <input type="button" value="按钮2" id="but"/>
+</body>
+</html>

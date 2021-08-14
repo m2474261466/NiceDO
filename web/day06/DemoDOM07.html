@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>冒泡机制</title>
+<style>
+     div{
+       width:300px;
+       height:100px;
+       background:green;
+       margin:0 auto;
+     }
+     p{        margin:0px;
+               background:orange;
+               width:200px;
+               height:60px;
+               position:relative;
+               left:40px;
+              top:20px;
+      }
+      input{
+        background:red;
+        position:relative;
+        left:40px;
+        top:10px;
+      }
+</style>
+</head>
+<script type="text/javascript">
+          function f1(e){
+        	  alert(e.x+","+e.y);//获取鼠标点击位置的x,y的坐标
+          
+          //取消冒泡
+          //非IE浏览器 e.stopPropagation()
+          //IE浏览器    e.cancelBubble()
+          if(e.stopPropagation){//不是IE浏览器
+        	  e.stopPropagation();
+        	  
+          }else{//就是IE浏览器
+        	  e.cancelBubble();
+           }
+          }
+</script>
+<body>
+    <div onclick="alert('div')">
+          <p onclick="alert('p')">
+             <input type="button" value="注册" onclick="f1(event)">
+          </p>
+    </div>
+  
+</body>
+</html>

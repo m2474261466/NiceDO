@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>省市联动查询</title>
+</head>
+<script type="text/javascript">
+   var citys=[
+              ["西安","汉中","宝鸡","渭南","铜川"],
+              ["广汉","成都","绵阳","攀枝花","广元"],
+              ["昆明","丽江","大理","西双版纳","普洱"],
+              ];
+   function provice(val){
+	   //根据下标获取对应省的所有市
+	   var ct=citys[val];
+	   //获取市标签
+	   var city=document.getElementById("city");
+	 //清空市的select节点的所有内容
+	 city.innerHTML="<option>--请选择--</option>";
+	   if(ct==null){
+		   return;
+	   }else{
+		   for(var i=0;i<ct.length;i++){
+			   //创建option标签
+			  var option=document.createElement("option");
+			   //把遍历出来的每个市放入到option节点的文本内容中
+			   option.innerHTML=ct[i];
+			   //将option追加到city的末尾
+			   city.append(option);
+		   }
+	   }
+   }
+</script>
+<body>
+              <!-- this.val：当前标签的value值  -->
+                   省:<select onchange="provice(this.value)">
+             <option value="-1">--请选择--</option>
+             <option value="0">陕西省</option>
+             <option value="1">四川省</option>
+             <option value="2">云南省</option>      
+          </select>
+                  市:<select id="city">
+             <option>--请选择--</option>
+          </select>
+</body>
+</html>

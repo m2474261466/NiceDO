@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>自定义对象</title>
+</head>
+<script type="text/javascript">
+function f1(){
+    //方式1 采用直接的方式创建对象
+    var student={
+ 		   "name":"admin",
+            "age":"20",
+             "work":function(){
+             	alert("学习，嗨皮");
+             }
+     };
+    //获取对象中的属性值
+    var n=student.name;
+    var a=student.age;
+    alert(a+","+n);
+    student.work();
+}
+
+
+//方式二 采用内置构造器创建对象
+function f2(){
+	var teacher=new Object();
+	//给该对象Object添加属性
+	teacher.name="sk";
+	teacher.age="21";
+	teacher.work=function(){
+		alert("研发");
+	}
+	alert(teacher.name+","+teacher.age);
+	teacher.work();
+}   
+
+
+//方式三  采用自定义构造器创建对象
+  function Doctor(name,age,work){
+	//this:当前对象
+	//name/age/work：给当前对象添加的属性
+	  this.name=name;
+	  this.age=age;
+	  this.work=work;
+}
+function f3(){
+	var doctor=new Doctor("潘医生",21,function(){alert("副教授")});
+	alert(doctor.name+","+doctor.age);
+	doctor.work();
+}
+           
+</script>
+<body>
+        <input type="button" value="按钮1" onclick="f1()">
+        <input type="button" value="按钮2" onclick="f2()">
+        <input type="button" value="按钮3" onclick="f3()">
+</body>
+</html>

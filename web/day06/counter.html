@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>计算器</title>
+<style>
+  body{
+   background-image:url(background.png);
+  }
+ .panel{
+    border: 4px solid #ddd;
+    width: 192px;
+    margin:100px auto;
+ }
+ 
+ .panel p,.panel input{
+    font-family: "微软雅黑";
+    font-size:20px;
+    margin:4px;
+    float:left;
+  
+ }
+ 
+   .panel p {
+        width: 122px;
+        height: 26px;
+        border: 1px solid #ddd;
+        padding: 6px;
+        overflow: hidden;
+      }
+      
+   .panel input {
+      width: 40px;
+      height: 40px;
+      border:1px solid #ddd;
+    }
+</style>
+</head>
+<script type="text/javascript">
+      //事件源：事件的源头
+      /*
+                   获取事件源
+            IE浏览器   ，event对象有srcElement属性，但是没有target属性
+            firefox浏览器，event对象有target属性，但是没有srcElement,但是他们的作用都是一样的
+      */
+         window.onload=function(){
+    	  //获取id是jsq的节点
+    	  var jsq=document.getElementById("jsq");
+    	  //获取p节点
+    	  var p=document.getElementById("screen");
+    	  jsq.onclick=function(e){
+    		  //通过event对象获取事件源
+    		  var obj=e.target;
+    		  //获取事件源的节点名
+    		  var name=obj.nodeName;
+    		  if(name=="INPUT"){
+    			  if(obj.value=="C"){
+    				  p.style.color="black";
+    				  p.innerHTML="";
+    			  }else if(obj.value=="="){
+    				  try{
+    					  p.innerHTML=eval(p.innerHTML);
+    					  p.innerHTML=parseInt(p.innerHTML).toFixed(3);//保留三位小数
+    				  }catch(e){
+    					  p.style.color="red";
+    					  p.innerHTML="error";
+    				  }
+    				   
+    			  }else{
+    				  p.innerHTML+=obj.value;
+    			  }
+    		  }
+    	  }
+      };
+      
+
+</script>
+<body>
+ 
+  <div class="panel" id="jsq">
+        <div>
+          <p id="screen"></p>
+          <input type="button" value="C">
+        </div>
+        <div>
+          <input type="button" value="7">
+          <input type="button" value="8">
+          <input type="button" value="9">
+          <input type="button" value="/">
+          
+          <input type="button" value="4">
+          <input type="button" value="5">
+          <input type="button" value="6">
+          <input type="button" value="*">
+          
+          <input type="button" value="1">
+          <input type="button" value="2">
+          <input type="button" value="3">
+          <input type="button" value="-">
+          
+          <input type="button" value="0">
+          <input type="button" value=".">
+          <input type="button" value="=">
+          <input type="button" value="+">
+          <!-- clear:both该属性的值指出了不允许有浮动对象的边。 -->
+          <div style="clear:both"></div>
+        </div>
+    </div> 
+
+</body>
+</html>
