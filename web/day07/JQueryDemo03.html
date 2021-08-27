@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery操作内容，属性，值等演示</title>
+</head>
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+       function f1(){
+    	   //1.获取第一个节点的内容:html()包含标签
+    	   var p1=$("p:eq(0)").html();
+    	   console.log(p1);
+    	   //1.2.给第一个p节点的内容赋值
+    	   $("p:eq(0)").html("<p>JQuery支持<u>读写</u>节点操作</p>");
+    	   
+    	   //2.获取第一个p节点的内容：text() 不包含标签
+    	   var p2=$("p:eq(0)").text();
+    	   console.log(p2);
+       }
+       function f2(){
+    	   //3.获取value值
+    	   var v= $("input:eq(1)").val();
+    	   console.log(v);
+    	   //3.1给value赋值
+    	   $("input:eq(1)").val("龙腾虎跃");
+    	   //3.3设置input节点中的值(:button :text)选取带有type属性的值
+    	   console.log($(":button").val());
+    	   console.log($(":text").val());
+    	   //3.4 根据id或者class获取文本框的值
+    	   console.log($("#t1").val());
+       }
+       
+       
+       function f3(){
+    	   //4.给img节点设置属性  attr:设置属性
+    	   $("img").attr("src","images/02.png");
+    	   $("img").attr("title","我的");
+    	   
+       }
+       
+       
+</script>
+<body>
+     <p>JQuery支持<b>读写</b>节点操作</p>
+     <p>JQuery支持<b>增删</b>节点操作</p>
+     <input type="button" value="查看JQuery操作" onclick="f1()"/><br>
+     <input type="button" value="风云九州" onclick="f2()" id="t1"/><br>
+     <img alt="无法显示" src="images/01.png">
+     <input type="button" value="换图片" onclick="f3()"/><br>
+</body>
+</html>

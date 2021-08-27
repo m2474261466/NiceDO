@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery演示</title>
+</head>
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+     //方式一：
+      /* var n=$("p");
+     function bigger(){
+    	 n++;
+    	 //给p节点添加颜色
+    	  $("p").css("color","red");
+    	 $("p").css("font-size",n+"px");
+    	 //获取字体大小
+    	 var size=$("p").css("font-size");
+    	 console.log(size)
+     }
+     function small(){
+    	 n--;
+    	//给p节点添加颜色
+   	     $("p").css("color","black");
+   	     $("p").css("font-size",n+"px");
+   	   //获取字体大小
+   	     var size=$("p").css("font-size");
+   	       console.log(size)
+     } */
+     
+     //方式二：
+     function bigger(){
+    	 //获取字体的大小
+    	 var size=$("p").css("font-size");
+    	 //把字体默认的而大小“16px”换成可以计算的数字(也就是去掉后边的单位px)
+    	 size=size.replace("px","");
+    	 //获取节点p并且添加样式
+    	 $("p").css("font-size",++size+"px");
+    	 $("p").css("color","red");
+    	 
+     }
+     
+     function small(){
+    	 //获取字体的大小
+    	 var size=$("p").css("font-size");
+    	//把字体默认的而大小“16px”换成可以计算的数字(也就是去掉后边的单位px)
+    	 size=size.replace("px","");
+    	 //获取节点p并且添加样式
+    	 $("p").css("font-size",--size+"px");
+    	 $("p").css("color","black");
+     }
+
+</script>
+<body>
+       <input type="button" value="+" onclick="bigger()"/>
+       <input type="button" value="-" onclick="small()"/>
+       <p>JQuery是一个javascript库</p>
+       <p>JQuery非常优秀，它可以帮助程序员减少大量的代码</p>
+       <p>JQuery非常的好学</p>
+</body>
+</html>

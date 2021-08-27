@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery选择器</title>
+</head>
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+       //javaScript写法  页面加载完后执行
+      /* window.onload=function(){
+    	   
+    	   
+       };*/
+       //Jquery写法       页面在加载完后执行
+       //方式1
+         /*$(document).ready(function(){
+        	 alert("1");
+         });*/
+       //方式2
+       $(function(){
+    	     //1.基本选择器
+    	        //javaScript写法
+	    	        //var lis=document.getElementByTagName("li");
+	    	        //console.log(lis);
+    	        //JQuery写法:通过JQuery获取li节点
+    	           var lis=$("li");
+    	           console.log(lis);
+    	           console.log(lis.length);
+    	           //获取id是gz的节点
+    	           var gz=$("#gz");
+    	           console.log(gz);
+    	           //获取class是sz的节点
+    	           console.log($(".sz"));
+    	       //获取ul下面的所有li
+    	       var ls=$("ul li");//或者var ls=$("ul>li");
+    	       console.log(ls);
+    	      //获取ul下面的id是广州的
+    	      console.log($("#u #gz"));
+    	      
+    	      
+    	   //2.层次选择器
+    	   //获取id是gz的弟弟
+    	   //var sz=$("ul>#gz+li");
+    	   var s=$("#gz").next();
+    	   console.log(s);
+    	   //获取id是gz的所有弟弟
+    	   console.log($("#gz~"));
+    	   
+    	   //3.表单选择器
+    	   //获取文本框内的内容
+    	  var c= $("#p").val();
+    	   console.log(c);
+    	   //获取属性为checked的值
+    	   var n=$("input[checked]");
+    	   console.log(n);
+    	   
+    	      
+       });
+         
+</script>
+<body>
+        <!-- 什么是jQuery
+		jQuery是一个优秀的JavaScript框架。一个轻量级的JavaScript库。
+		兼容CSS3，及各种浏览器
+		使用户更方便地处理HTML、Events、实现动画效果，并且方便地为网站提供AJAX交互
+		使用户的HTML页面保持代码和HTML内容分离
+		注：jQuery 2.x 开始不再支持 Internet Explorer 6, 7, 8 -->
+		
+		<ul class="u">
+		     <li>北京</li>
+		     <li>上海</li>
+		     <li id="gz">广州</li>
+		     <li class="sz">深圳</li>
+		     <li>香港</li>
+		</ul>
+		<ol class="o">
+		     <li id="gz">广州</li>
+		     
+		</ol>
+		<input type="text" id="p" value="测试"/>
+		<input type="radio" name="sex" value="1"> 
+		<input type="radio" name="sex" value="2" checked> 
+</body>
+</html>

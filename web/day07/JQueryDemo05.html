@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery对DOM的增加，插入，删除</title>
+</head>
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    function f1(){
+    	
+    	//创捷节点
+    	var li="<li>香港</li>";
+    	//在ul节点末尾下追加li节点
+    	$("ul").append(li);
+    	//在ul节点最前面追加新的li节点
+    	$("ul").prepend(li);
+    }
+    
+    function f2(){
+    	//创建节点
+    	var li="<li>澳门</li>";
+    	//在广州的上门插入新的节点
+    	$(".gz").before(li);
+    	$(".gz").after(li);
+    }
+    function f3(){
+    	//删除广州节点
+    	//方式一          $(".gz").remove();
+    	//方式二           $("li").remove("li:eq(2)")
+    	//删除包括带“州”的节点
+    	$("li").remove("li:contains(州)");
+    }
+</script>
+<body>
+        <ul>
+            <li>北京</li>
+            <li>上海</li>
+            <li class="gz">广州</li>
+            <li >深圳</li>
+            <li>杭州</li>
+            <li>西安</li>
+        </ul>
+       <input type="button" value="追加" onclick="f1()"/>
+       <input type="button" value="插入" onclick="f2()"/>
+       <input type="button" value="删除" onclick="f3()"/>
+</body>
+</html>

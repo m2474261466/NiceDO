@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style type="text/css">
+     .big{
+         font-size:30px;
+         color:blue;
+     }
+     .red{
+            color:red;
+     }
+</style>
+</head>
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+               function f1(){
+            	   setInterval(function(){
+            		   //切换类属性值toggleClass();
+            		   $("p").toggleClass("big").toggleClass("red");
+            		   
+            	   },1000);
+               }
+               function f2(){
+            	   $("p").addClass("big");
+               }
+               function f3(){
+            	   //js对样式的删除并且增加一个新的属性
+            	   $("p").removeClass("big").addClass("red");
+               }
+               
+</script>
+<body>
+       <p>JQuery是一个javascript库</p>
+       <p>JQuery非常优秀，它可以帮助程序员减少大量的代码</p>
+       <p>JQuery非常的好学</p>
+       <input type="button" value="惦记我" onclick="f1()"/>
+       <input type="button" value="增加属性" onclick="f2()"/>
+       <input type="button" value="删除属性" onclick="f3()">
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>通过节点关系查找节点</title>
+</head>
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+         $(function(){
+        	 //获取"广州"的父节点
+        	 var par=$(".gz").parent();
+        	 console.log(par);
+        	 //获取ul节点的所有子节点
+        	 var ch=$("ul").children();
+        	 console.log(ch);
+        	 //获取ul节点上的"上海"子节点
+        	 var ch2=$("ul").children().eq(1);
+        	 console.log(ch2);
+        	//获取ul节点上的"上海"子节点的文本
+        	 var ch3=$("ul").children().eq(1).html();
+        	 console.log(ch3);
+        	 //ul所有子节点的文本
+        	 for(var i=0;i<ch.length;i++){
+        		 console.log(ch.eq(i).html());
+        	 }
+        	 
+        	 //设置给ul节点下的所有子节点添加一个背景色为绿色
+        	 $("ul").children().css("background","red");
+        	 $("ul").children().css("margin-bottom","10px");
+        	 
+        	 //获取广州节点的所有兄弟
+        	 var sib=$(".gz").siblings();
+        	 console.log(sib);
+        	 
+        	 //获取广州节点的class是c的兄弟
+        	 var sib2=$(".gz").siblings(".c");
+        	 console.log(sib);
+        	//获取广州节点的class是c的兄弟的第二个兄弟的文本内容
+        	 var sib3=$(".gz").siblings(".c").eq(1).html();
+        	 console.log(sib);
+        	 //获取广州节点的下一个弟弟，并且添加橙色背景
+        	 var bro=$(".gz").next().css("background","orange");
+        	 console.log(bro);
+        	//获取广州节点的所有弟弟，并且添加红色背景
+        	 var bros=$(".gz~").css("background","blue");
+        	 var bros1=$(".gz").nextAll().css("background","orange");
+        	 
+        	 //获取广州节点的哥哥，并且为添加背景色pink
+        	 var gg=$(".gz").prev().css("background","pink");
+        	 
+        	//获取广州节点的所有哥哥，并且为添加背景色pink
+        	 var ggs=$(".gz").prevAll().css("background","#CCC");
+        	
+        	//在ul节点中没有class属性的节点给她添加背景色黄色
+        	var noclass=$("ul").find("li:not(li[class])").css("background","#37E174");
+        	 
+         });
+ 
+</script>
+<body>
+       <ul id="u">
+          <li  class="c">北京</li>
+            <li>上海</li>
+            <li class="gz">广州</li>
+            <li >深圳</li>
+            <li class="c">杭州</li>
+            <li>西安</li>
+            <li href="#">台湾</li>
+       </ul>
+</body>
+</html>
