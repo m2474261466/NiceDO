@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>商城二级菜单</title>
+<style type="text/css">
+       li{
+         list-style-type:none;
+       
+       }
+       #left_box{
+         width:200px;
+         }
+       .menu{
+         background:#0AA1ED;
+         height:35px;
+         text-align:center;
+         line-height:35px;
+         opacity:0.8;
+         color:#F5F5F5;
+         font-weight:bolder;
+         font-family:"黑体";
+         font-size:14px;
+         cursor:pointer;
+         margin-bottom:15px;
+          background-repeat: no-repeat;
+           /*设置背景图的起始位置(左(距离左位置) 上下)*/
+           background-position:15px center;
+       }
+       .slbmenu{
+         margin-bottom:5px;
+         display:none;
+       }
+       .slbmenu>li{
+         line-height:35px;
+         color:#808080;
+         font-size:12px;
+       }
+       .cmenu1{
+           background-image:url("myOrder/myOrder.png");
+          
+       }
+       .cmenu2{
+          background-image:url("myOrder/pcenter_icon1.png");
+         
+       }
+       
+       .cmenu3{
+          background-image:url("myOrder/pcenter_icon2.png");
+         
+       }
+       
+       .cmenu4{
+          background-image:url("myOrder/pcenter_icon3.png");
+         
+       }
+       .menu>img{
+         float:right;
+         margin-top:10px;
+         margin-right:10px;
+       }
+       
+</style>
+</head>
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+     $(function(){
+    	 $(".menu").click(function(){
+    		 if($(this).next().css("display")=="none"){
+    			     //关闭当前节点的兄弟节点ul
+    			     $(".slbmenu").css("display","none");
+    			     $(this).siblings().children("img").attr("src","myOrder/myOrder1.png");
+    			     $(this).next().css("display","block");
+    			     $(this).children("img").attr("src","myOrder/myOrder2.png");
+    		 }else{
+    			 $(this).next().css("display","none");
+    			 $(this).children("img").attr("src","myOrder/myOrder1.png");
+    		 }
+    	 });
+     });
+
+
+</script>
+<body>
+  <div  id="left_box">
+     <ul>
+           <li class="menu cmenu1">我的订单<img src="myOrder/myOrder1.png"/></li>
+              <ul class="slbmenu" >
+		           <li>待付款</li>
+		           <li>待收货</li>
+		           <li>待评价</li>
+		           <li>退货退款</li>
+              </ul>
+          <li class="menu cmenu2">我的优惠卷<img src="myOrder/myOrder1.png"/></li>
+             <ul class="slbmenu"  >
+		           <li>迪奥口红100元</li>
+		           <li>马桶盖30元</li>
+		           <li>抽脂娄10元</li>
+		           <li>华为手机200元</li>
+             </ul>
+          <li class="menu cmenu3"> 收货地址<img src="myOrder/myOrder1.png"/></li>
+	         <ul class="slbmenu">
+		           <li>西安工程大学</li>
+		           <li>西安交通大学</li>
+             </ul>
+          <li class="menu cmenu4"> 账号管理<img src="myOrder/myOrder1.png"/></li>
+             <ul  class="slbmenu" >
+		            <li>个人信息 </li>
+		            <li>我的头像</li>
+		            <li>安全管理</li>
+             </ul>
+     </ul>
+  </div>
+</body>
+</html>

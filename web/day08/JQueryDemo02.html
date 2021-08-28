@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuuery获取元素下标位置</title>
+<style>
+     p{
+        width:200px;
+        height:50px;
+        background:green;
+        margin-bottom:10px;
+        
+     }
+     
+</style>
+</head>
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+       $(function(){
+    	   $("p").click(function(){
+    		  var index=$(this).index();
+    		  console.log(index);
+    	   })
+       });
+</script>
+<body>
+            <p>aaa</p>
+             <p>bbb</p>
+              <p>ccc</p>
+               <p>ddd</p>
+</body>
+</html>

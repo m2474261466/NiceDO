@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery事件</title>
+<style type="text/css">
+        .d2{
+           width:200px;
+           height:200px;
+           background:red;
+        }
+   
+</style>
+</head>
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+
+     //方式一
+     function f1(){
+    	 alert("1");
+     }
+     //  页面加载完执行
+     $(function(){
+    	 //方式2
+    	 $("#p2").click(function(){
+    		 alert("p2");
+    		 
+    	 });
+    	 //方式三
+         $(".p3").click(checkp);
+    	 
+    	 //方式四
+    	 $("#d").on("click",".p4,#p5",ationp);//  上一页   下一页
+    	 
+    	 //鼠标触摸事件
+         $("#div").mouseover(function(){
+         	$("#div").addClass("d2");
+         }); 
+      
+      //鼠标离开事件
+      $("#div").mouseout(function(){
+     	 $(this).removeClass("d2").addClass();
+         });
+     });
+    
+     function checkp(){
+    	 alert("p3");
+     }
+     function ationp(){
+    	 var n=$(this);//当前节点
+    	 console.log(n);
+     }
+     
+    
+</script>
+
+<body>
+     <div id="d">
+        <p onclick="f1()">按钮1</p>
+        <p id="p2">按钮2</p>
+        <p class="p3">按钮3</p>
+        <p class="p4">按钮4</p>
+        <p id="p5">按钮5</p>
+     </div>
+     <div id="div">触摸</div>
+        
+</body>
+</html>

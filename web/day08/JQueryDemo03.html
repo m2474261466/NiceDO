@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>简易二级菜单</title>
+<style type="text/css">
+     #nav li{
+        list-style-type:none;
+        cursor:pointer;
+     }
+     #nav .navlink{
+        font-weight:bolder;/* 加粗加黑 */
+     }
+     #nav .menu{
+      display:none;
+     }
+</style>
+</head>
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+   $(function(){
+	   $("#nav>li").click(function(){
+		   //判断当前节点的弟弟是否为隐藏，若隐藏则关闭所有的打开当前节点的弟弟
+		   if($(this).next().css("display")=="none"){//如果隐藏
+			   //1.隐藏所有当前节点的兄弟ul
+			     //   $(".menu").css("display","none");//方式一
+			      //$(this).siblings(".menu").css("display","none");//方式二
+			    //2.显示当前节点的弟弟ul
+			    //$(this).next().css("display","block");//inline行显示  block块显示
+			    //显示当前节点的弟弟，隐藏当前节点的兄弟class是menu
+			    $(this).next().css("display","block").siblings(".menu").css("display","none");
+		   }else{//如果显示，要隐藏当前节点的弟弟ul了
+			   $(this).next().css("display","none");
+		   }
+		   
+	   });
+   });
+</script>
+<body>
+         <ul id="nav">
+           <li class="navlink">我的订单</li>
+           <ul class="menu">
+              <li>待付款</li>
+              <li>待收货</li>
+              <li>待评价</li>
+              <li>退货退款</li>
+           </ul>
+           <li class="navlink">我的优惠卷</li>
+           <ul class="menu">
+              <li>迪奥空红100元</li>
+              <li>马桶盖30元</li>
+              <li>抽纸篓10元</li>
+              <li>华为手机200元</li>
+           </ul>
+           <li class="navlink">收货地址</li>
+            <ul class="menu">
+              <li>叙利亚大马士革战场</li>
+              <li>西安工程大学金花校区</li>
+           </ul>
+           <li class="navlink">账号管理</li>
+            <ul class="menu">
+              <li>个人信息</li>
+              <li>我的头像</li>
+              <li>安全管理</li>
+             
+           </ul>
+         </ul>
+</body>
+</html>
