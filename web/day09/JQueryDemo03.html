@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery动画效果--演示</title>
+<style>
+     .du{
+        width:300px;
+        height:300px;
+        background:green;
+        border-radius:5px;
+        opacity:0.5;
+     }
+     #img3{
+      position:relative;
+     }
+</style>
+</head>
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+               function hide(){
+            	  // $("#img1").toggle(2000);//方式一
+            	  $("#img1").stop();
+            	   $("#img1").hide(2000);//方式二
+               }
+               function show(){
+            	   $("#img1").stop();//立刻停止动画效果
+            	   $("#img1").show(2000);
+               }
+               
+               function up(){
+            	   $(".du").stop();//立刻停止动画效果
+            	   $(".du").slideUp(2000);
+               }
+               function down(){
+            	   $(".du").stop();//立刻停止动画效果
+            	   $(".du").slideDown(2000);
+               }
+               function hint(){
+            	   /**
+            	      fadeOut(毫秒数)该函数用于淡出效果
+            	      fadeIn(毫秒数)该函数用于淡入效果
+            	      fadeToggle(毫秒数)该函数用于fadeOut和fadeIn之间的切换s
+            	   */
+            	   //$("#img2").fadeOut(2000);
+            	   setInterval(function(){
+            		   $("#img2").fadeToggle(1000);
+            	   },2000);
+            	   
+               }
+               
+               /*
+                                                自定义动画：
+                  animate({"样式"},毫秒数);
+               需要位置进行操作，要记住首先把元素的css-position属性设置为relative,absolute,fixed(进行定位),根据元素的定位来进行偏移;
+               animate里面只能有两个属性
+               
+               */
+           
+            	
+            	   function diy(){
+            		    $("#img3").animate({"left":"500px"},2000)
+            		    .animate({"top":"400px"},2000)
+            		    .animate({"left":"0px"},2000)
+            		    .animate({"top":"0px"},2000);
+            		   }
+               
+</script>
+<body>
+          <div>
+              <input type="button" value="隐藏" onclick="hide()"/>
+              <input type="button" value="显示" onclick="show()"/>
+              <input type="button" value="展开" onclick="down()"/>
+              <input type="button" value="关闭" onclick="up()"/>
+              <input type="button" value="提示" onclick="hint()"/>
+              <input type="button" value="动一动" onclick="diy()"/> 
+          </div>
+          <div>
+             <img id="img1" src="images/06.png"/>
+             <img id="img2"  src="images/07.png"/>
+             <img id="img3" src="images/08.png"/>
+          </div>
+          <div class="du"></div>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>简易图片轮播</title>
+<style type="text/css">
+	*{
+		margin:0px;
+		padding:0px;
+		list-style-type: none;
+	}
+	#banner_wrap{
+		width:590px;
+		height:470px;
+		margin:auto;
+		margin-top:30px;
+		position:relative;
+		overflow:hidden;/* 将溢出部分隐藏 */
+	}
+	#banner{
+		height:100%;
+		position:absolute;		
+	}
+	li{
+		float:left;
+	}
+	.focus{
+		width:200px;
+		height:20px;
+		position:absolute;
+		left:46%;
+		bottom:10px;
+		 list-style-type: none;
+	}
+	.focusli{
+		width:10px;
+		height:10px;
+		background: #FFF;
+		margin:4px 6px;
+		border-radius:50%;
+		cursor:pointer;
+	}
+	.btn{
+		width:28px;
+		height:70px;
+		background: #ccc;
+		position:absolute;
+		top:40%;
+		border-radius:5px;
+	}
+	.left{
+		left:2px;
+		background:#ccc url(myOrder/arrow-left.png) no-repeat 50%;		
+	}
+	.right{
+		right:2px;
+		background:#ccc url(myOrder/arrow-right.png) no-repeat 50%;		
+	}
+</style>
+</head>
+<script type="text/javascript"  src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var index = 0;
+		var id = 0;
+		$("#banner").width($("img:eq(0)").width()*$("img").length);
+		// 设置默认焦点为第一个
+		$(".focusli:eq(0)").css("background","#0AA1ED").siblings().css("background","#FFF");
+		
+		function bannerRight(){
+			index++;
+			if(index>=$("img").length){
+				index = 0;
+			}
+			// id="banner"的ul向左偏移
+			$("#banner").animate({"left":-$("img:eq(0)").width()*index},.1500);
+			// 焦点随着对应的图片移动而移动并添加背景色
+			$(".focusli").eq(index).css("background","#0AA1ED").siblings().css("background","#FFF");
+		}
+		// 定时器 
+		id = setInterval(bannerRight,2000);
+		// 鼠标悬浮停止事件
+		$("#banner_wrap").mouseover(function(){
+			clearInterval(id);
+		});
+		// 鼠标悬浮启动事件
+		$("#banner_wrap").mouseout(function(){
+			id = setInterval(bannerRight,2000);     
+		});	
+		
+		// 鼠标悬停的焦点下标和图片轮播的下标一致
+		$(".focusli").mouseover(function(){
+			$("#banner").stop();// 立刻停止动画效果
+			var n = $(this).index();// 获取下标
+			// 当前焦点对应的当前图片
+			$(".focusli").eq(n).css("background","#0AA1ED").siblings().css("background","#FFF");
+			$("#banner").animate({"left":-$("img:eq(0)").width()*n},.1500);
+		});
+		
+		// 右侧按钮
+		$(".right").click(function(){
+			$("#banner").stop();
+			bannerRight();
+		});
+		
+		// 左侧按钮
+		$(".left").click(function(){
+			$("#banner").stop();
+			bannerLeft();
+		});
+		
+		function bannerLeft(){
+			/* index--;
+			if( index<0){				
+				index = $("img").length-1;
+			} */
+			if(index==0){
+				index = $("img").length-1;
+			} else{
+				index--;
+			}
+			// id="banner"的ul向左偏移
+			$("#banner").animate({"left":-$("img:eq(0)").width()*index},.1500);
+			// 焦点随着对应的图片移动而移动并添加背景色
+			$(".focusli").eq(index).css("background","#0AA1ED").siblings().css("background","#FFF");
+		}
+	});
+</script>
+<body>
+	<div id="banner_wrap">
+		<ul id="banner">
+			<li>
+				<a href="#">
+					<img src="image/2.jpg"/>
+				</a>				
+			</li>
+			<li>
+				<a href="#">
+					<img src="image/4.jpg"/>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="image/6.jpg"/>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="image/7.jpg"/>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="image/8.jpg"/>
+				</a>
+			</li>
+			
+			
+		</ul>
+		
+		<!-- 焦点 -->
+		<ul class="focus">
+			<li class="focusli"></li>
+			<li class="focusli"></li>
+			<li class="focusli"></li>
+			<li class="focusli"></li>
+			<li class="focusli"></li>
+			
+		</ul>
+		
+		<!-- 左右按钮 -->
+		<div class="btn left"></div>
+		<div class="btn right"></div>
+	</div>
+</body>
+</html>

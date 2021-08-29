@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery动画效果--滑动</title>
+<style type="text/css">
+  div{
+    height:450px;
+    background:pink;
+  }
+  input{
+    float:right;
+  }
+</style>
+</head>
+</head>
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+//页面加载完再执行
+      $(function(){
+    	  $("div>input").click(function(){
+    		  /*
+    		  slideUp(毫秒数) 函数用于向上滑动元素
+    		  slideUp(毫秒数,函数)当滑动效果完成后所要执行的函数
+    		  */
+    		 // $("div").slideUp(2000);
+    		  $("div").slideUp(2000,function(){
+    			  alert(1);
+    		  });
+    		 
+    	  });
+    	  $("input:eq(1)").click(function(){
+    		  $("div").slideDown(2000,function(){
+    			  alert(2);
+    		  });
+		  });
+    	  //slideToggle(毫秒数)该函数可以在slideUp和slideDown之间切换
+    	  $("input:eq(2)").click(function(){
+    		  $("div").slideToggle(2000);
+    	  });
+    	 
+      });
+      
+
+</script>
+<body>
+    <div>
+      <input type="button" value="X" />
+    </div>
+    <input type="button" value="展开">
+    <input type="button" value="滑动">
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>简易图片轮播</title>
+<style type="text/css">
+        *{
+          margin:0px;
+          padding:0px;
+          list-style-type:none;
+        }
+       
+       #banner_wrap{
+           width:1000px;
+           height:400px;
+           border:2px solid green;
+           margin:auto;
+           margin-top:30px;
+           overflow:hidden; 
+           position:relative;
+       }
+       #banner{
+         width:4000px;
+         height:100%;
+         border:2px solid red;
+         position: absolute; 
+       }
+      li{
+         float:left;
+         
+       }
+</style>
+</head>
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+             $(function(){
+            	 //下标
+        		 var index=0;
+            	 var id=0;
+            	 //根据图片的宽度和数量设置ul的高度
+            	$("#banner").width($("img:eq(0)").width()*$("img").length);
+            	
+       
+            	 function bannerleft(){
+            		index++;
+            		if(index==$("img").length){
+            			index=0;
+            		}
+            		//自定义动画的时候只能用 left top
+            		$("#banner").animate({"left":-$("img:eq(0)").width()*index},1500);
+            		 
+            	   }
+             	 }
+            	//设置定时器
+            	  id=setInterval(bannerleft,2000);
+            	 //鼠标悬浮停止事件
+            	$("#banner_wrap").mouseover(function(){
+            		clearInterval(id);
+            	});
+            	 
+            	 //鼠标悬浮启动事件
+            	$("#banner_wrap").mouseout(function(){
+            		id=setInterval(bannerleft,2000);
+            	});
+            	 
+             });
+</script>
+<body>
+           <div id="banner_wrap">
+               <ul id="banner">
+                   <li>
+                      <img src="myOrder/itemCat_banner1.png"/>
+                   </li>
+                   <li>
+                      <img src="myOrder/itemCat_banner2.png"/>
+                   </li>
+                   <li>
+                      <img src="myOrder/itemCat_banner3.png"/>
+                   </li>
+                   <li>
+                      <img src="myOrder/itemCat_banner4.png"/>
+                   </li>
+               </ul>
+               
+           </div>
+</body>
+</html>

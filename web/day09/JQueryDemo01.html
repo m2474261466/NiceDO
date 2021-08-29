@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery合成事件</title>
+<style>
+      p{
+       width:80px;
+       background:green;
+       
+      }
+</style>
+</head>
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+        $(function(){
+        	/*
+        	 hover()函数用于模拟光标触摸事件，当光标移动到元素上时会触发第一个函数
+        	 当光标离开时会触发第二个事件
+        	*/
+        	$("img:eq(0)").hover(function(){
+        		//光标移动到元素上
+        		$("img:eq(0)").css("background","red");
+        	},function(){
+        		//光标离开元素
+        	   $("img:eq(0)").css("background","blue");
+        	});
+        	
+        	$("p").hover(function(){
+        		$("img:eq(2)").attr("src","images/03.png");
+        	},function(){
+        		$("img:eq(2)").attr("src","");
+        	});
+        	
+        	
+        	////toggle(毫秒数)  在毫秒数内，元素可见则隐藏该元素，当该元素隐藏则显示该元素
+        	$("img:eq(1)").toggle(2000);
+        	
+        	setInterval(function(){
+        		$("img:eq(1)").toggle(1000);
+        	},2000);
+        });
+</script>
+<body>
+      <img src="images/01.png">
+      <img src="images/02.png">
+      <p>显示图片</p>
+      <img/>
+</body>
+</html>
