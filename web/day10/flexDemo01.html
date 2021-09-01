@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>flex父项(容器))常见属性</title>
+<style type="text/css">
+       div{
+         width:500px;
+         height:300px;
+         background:pink;
+         margin:auto;
+         display:flex;/* 声明该元素是flex模型 可以对它的子项进行布局 */
+         /* flex-direction:row;/*子项目设置轴    默认主轴x轴 ，侧轴是y轴/
+         /* justify-content:flex-end;/*子项目于设置子元素排列方式    默认从主轴头部开始位置    这里设置为从尾部开始  */
+         /* justify-content:center; *//*子项目主轴剧中位置 
+         /* justify-content:space-between;/* 子项目在主轴两边先贴边，中间在平分剩余空间 */
+         /* justify-content:space-around;/*子项目在主轴平均分配剩余空间*/
+         /* flex-wrap:wrap; *//* 设置子元素是否换行   默认为不换行nowrap，若放不下则缩小子元素大小     wrap换行  nowrap不换行 */
+         /* align-items:center; *//* 设置子元素在侧轴的排列方式   一般先确定主轴再确定侧轴 (同时设置可以让子项目上下左右剧中)  默认从侧轴头部开始*/
+         /* align-items:stretch; *//* 侧轴的子项目拉伸（ 如果没有设置高度的情况下） */       
+         /* align-content:  设置侧轴上的子元素的排列方式（多行） ，换行的情况下可以使用*/
+         /* align-content:space-around; */
+         
+         /* flex-flow:row nowrap;*//*flex-flow 属性是 flex-direction 和 flex-wrap 属性的复合属性*/
+         
+         
+         
+        
+       }
+       
+       span{
+        width:200px;
+        height:100px; 
+        background:orange;
+        margin:5px;
+       }
+</style>
+</head>
+<body>
+     <div>
+             <span>aaa</span>
+             <span>bbb</span>
+             <span>ccc</span>
+     </div>
+</body>
+</html>

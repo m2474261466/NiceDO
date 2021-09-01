@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>flex子项目的常见属性</title>
+<!-- align-slef:控制自己在侧轴上的排列方式 -->
+<style type="text/css">
+    div{
+      width:500px;
+      height:400px;
+      background:green;
+      display:flex;
+      margin:auto;
+      
+    }
+    
+    span{
+      width:150px;
+      height:100px;
+      background:pink;
+      margin:5px;
+    }
+    div span:nth-child(3){
+      align-self:flex-end; /* align-self控制子项自己在侧轴上的排列方式  */
+       order:-1;/*  属性定义项目的排列顺序   默认顺序都是0  值越小越靠前*/
+    }
+</style>
+</head>
+<body>
+      <div>
+           <span>1</span>
+           <span>2</span>
+           <span>3</span>
+      </div>
+</body>
+</html>

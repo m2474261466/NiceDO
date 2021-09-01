@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>flex子项的常见属性</title>
+<style type="text/css">
+      /* flex:<number> 代表的是子项目占有的份数 */
+    .d{
+       width:60%;
+        height:100px;
+        margin:auto;
+        background:pink;
+        display:flex;
+        
+     }
+      
+     
+     .d :nth-child(1){/* 设置第一个子元素的属性 */
+       background:green;
+       width:100px;
+       height:100px;
+     }
+     
+       .d :nth-child(2){/* 设置第一个子元素的属性 */
+       background:blue;
+       flex:1;
+     }
+     .d :nth-child(3){
+       background:red;
+       width:100px;
+       height:100px;
+     }
+      .d p:nth-child(1){
+        height:100px;
+        flex:1;
+      }
+       .d p:nth-child(2){
+      height:100px;
+        flex:2;/*第二个元素占两份*/
+      }
+      
+       .d p:nth-child(3){
+      height:100px;
+        flex:1;
+      }
+      
+</style>
+</head>
+<body> 
+      <div class="d">
+          <div>aa</div>
+	      <div>bb</div>
+	      <div>cc</div>
+      </div>
+      <div class="d">
+          <p>aa</p>
+	      <p>bb/p>
+	      <p>cc</p>
+      </div>
+      
+</body>
+</html>
