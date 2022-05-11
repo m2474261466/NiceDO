@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.WorkTicketHistoryMapper">
+    
+    <resultMap type="WorkTicketHistory" id="WorkTicketHistoryResult">
+        <result property="hId"    column="h_id"    />
+        <result property="hWorkId"    column="h_work_id"    />
+        <result property="hLastUserId"    column="h_last_user_id"    />
+        <result property="hHandlerUserId"    column="h_handler_user_id"    />
+        <result property="hNextUserId"    column="h_next_user_id"    />
+        <result property="hUpdateTime"    column="h_update_time"    />
+    </resultMap>
+
+    <sql id="selectWorkTicketHistoryVo">
+        select h_id, h_work_id, h_last_user_id, h_handler_user_id, h_next_user_id, h_update_time from work_ticket_history
+    </sql>
+
+    <select id="selectWorkTicketHistoryList" parameterType="WorkTicketHistory" resultMap="WorkTicketHistoryResult">
+        <include refid="selectWorkTicketHistoryVo"/>
+        <where>  
+            <if test="hWorkId != null "> and h_work_id = #{hWorkId}</if>
+            <if test="hLastUserId != null "> and h_last_user_id = #{hLastUserId}</if>
+            <if test="hHandlerUserId != null "> and h_handler_user_id = #{hHandlerUserId}</if>
+            <if test="hNextUserId != null "> and h_next_user_id = #{hNextUserId}</if>
+            <if test="hUpdateTime != null "> and h_update_time = #{hUpdateTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectWorkTicketHistoryByHId" parameterType="Long" resultMap="WorkTicketHistoryResult">
+        <include refid="selectWorkTicketHistoryVo"/>
+        where h_id = #{hId}
+    </select>
+        
+    <insert id="insertWorkTicketHistory" parameterType="WorkTicketHistory" useGeneratedKeys="true" keyProperty="hId">
+        insert into work_ticket_history
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="hWorkId != null">h_work_id,</if>
+            <if test="hLastUserId != null">h_last_user_id,</if>
+            <if test="hHandlerUserId != null">h_handler_user_id,</if>
+            <if test="hNextUserId != null">h_next_user_id,</if>
+            <if test="hUpdateTime != null">h_update_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="hWorkId != null">#{hWorkId},</if>
+            <if test="hLastUserId != null">#{hLastUserId},</if>
+            <if test="hHandlerUserId != null">#{hHandlerUserId},</if>
+            <if test="hNextUserId != null">#{hNextUserId},</if>
+            <if test="hUpdateTime != null">#{hUpdateTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateWorkTicketHistory" parameterType="WorkTicketHistory">
+        update work_ticket_history
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="hWorkId != null">h_work_id = #{hWorkId},</if>
+            <if test="hLastUserId != null">h_last_user_id = #{hLastUserId},</if>
+            <if test="hHandlerUserId != null">h_handler_user_id = #{hHandlerUserId},</if>
+            <if test="hNextUserId != null">h_next_user_id = #{hNextUserId},</if>
+            <if test="hUpdateTime != null">h_update_time = #{hUpdateTime},</if>
+        </trim>
+        where h_id = #{hId}
+    </update>
+
+    <delete id="deleteWorkTicketHistoryByHId" parameterType="Long">
+        delete from work_ticket_history where h_id = #{hId}
+    </delete>
+
+    <delete id="deleteWorkTicketHistoryByHIds" parameterType="String">
+        delete from work_ticket_history where h_id in 
+        <foreach item="hId" collection="array" open="(" separator="," close=")">
+            #{hId}
+        </foreach>
+    </delete>
+
+</mapper>

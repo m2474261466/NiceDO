@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('修改工单历史记录')" />
+    <th:block th:include="include :: datetimepicker-css" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-history-edit" th:object="${workTicketHistory}">
+            <input name="hId" th:field="*{hId}" type="hidden">
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">工单id：</label>
+                <div class="col-sm-8">
+                    <input name="hWorkId" th:field="*{hWorkId}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">上一处理者id：</label>
+                <div class="col-sm-8">
+                    <input name="hLastUserId" th:field="*{hLastUserId}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">当前处理者id：</label>
+                <div class="col-sm-8">
+                    <input name="hHandlerUserId" th:field="*{hHandlerUserId}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">下一处理者id：</label>
+                <div class="col-sm-8">
+                    <input name="hNextUserId" th:field="*{hNextUserId}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">更新时间：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="hUpdateTime" th:value="${#dates.format(workTicketHistory.hUpdateTime, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: datetimepicker-js" />
+    <script th:inline="javascript">
+        var prefix = ctx + "system/history";
+        $("#form-history-edit").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                $.operate.save(prefix + "/edit", $('#form-history-edit').serialize());
+            }
+        }
+
+        $("input[name='hUpdateTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+    </script>
+</body>
+</html>

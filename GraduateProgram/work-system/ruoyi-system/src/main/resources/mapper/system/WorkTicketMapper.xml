@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.WorkTicketMapper">
+    
+    <resultMap type="WorkTicket" id="WorkTicketResult">
+        <result property="tId"    column="t_id"    />
+        <result property="tTitile"    column="t_titile"    />
+        <result property="tInfo"    column="t_info"    />
+        <result property="tType"    column="t_type"    />
+        <result property="tCreateUserId"    column="t_create_user_id"    />
+        <result property="tCreateTime"    column="t_create_time"    />
+        <result property="tState"    column="t_state"    />
+        <result property="tUserList"    column="t_user_list"    />
+        <result property="tUserId"    column="t_user_id"    />
+        <result property="tHandlerUserId"    column="t_handler_user_id"    />
+    </resultMap>
+
+    <sql id="selectWorkTicketVo">
+        select t_id, t_titile, t_info, t_type, t_create_user_id, t_create_time, t_state, t_user_list, t_user_id, t_handler_user_id from work_ticket
+    </sql>
+
+    <select id="selectWorkTicketList" parameterType="WorkTicket" resultMap="WorkTicketResult">
+        <include refid="selectWorkTicketVo"/>
+        <where>  
+            <if test="tTitile != null  and tTitile != ''"> and t_titile = #{tTitile}</if>
+            <if test="tInfo != null  and tInfo != ''"> and t_info = #{tInfo}</if>
+            <if test="tType != null "> and t_type = #{tType}</if>
+            <if test="tCreateUserId != null "> and t_create_user_id = #{tCreateUserId}</if>
+            <if test="tCreateTime != null ">
+             AND DATE_FORMAT(t_create_time, '%Y-%m-%d') = DATE_FORMAT(#{tCreateTime}, '%Y-%m-%d')
+
+             </if>
+            <if test="tState != null "> and t_state = #{tState}</if>
+            <if test="tUserList != null  and tUserList != ''"> and t_user_list = #{tUserList}</if>
+            <if test="tUserId != null "> and t_user_id = #{tUserId}</if>
+            <if test="tHandlerUserId != null "> and t_handler_user_id = #{tHandlerUserId}</if>
+        </where>
+    </select>
+    
+    <select id="selectWorkTicketByTId" parameterType="Long" resultMap="WorkTicketResult">
+        <include refid="selectWorkTicketVo"/>
+        where t_id = #{tId}
+    </select>
+        
+    <insert id="insertWorkTicket" parameterType="WorkTicket" useGeneratedKeys="true" keyProperty="tId">
+        insert into work_ticket
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="tTitile != null">t_titile,</if>
+            <if test="tInfo != null">t_info,</if>
+            <if test="tType != null">t_type,</if>
+            <if test="tCreateUserId != null">t_create_user_id,</if>
+            <if test="tCreateTime != null">t_create_time,</if>
+            <if test="tState != null">t_state,</if>
+            <if test="tUserList != null">t_user_list,</if>
+            <if test="tUserId != null">t_user_id,</if>
+            <if test="tHandlerUserId != null">t_handler_user_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="tTitile != null">#{tTitile},</if>
+            <if test="tInfo != null">#{tInfo},</if>
+            <if test="tType != null">#{tType},</if>
+            <if test="tCreateUserId != null">#{tCreateUserId},</if>
+            <if test="tCreateTime != null">#{tCreateTime},</if>
+            <if test="tState != null">#{tState},</if>
+            <if test="tUserList != null">#{tUserList},</if>
+            <if test="tUserId != null">#{tUserId},</if>
+            <if test="tHandlerUserId != null">#{tHandlerUserId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateWorkTicket" parameterType="WorkTicket">
+        update work_ticket
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="tTitile != null">t_titile = #{tTitile},</if>
+            <if test="tInfo != null">t_info = #{tInfo},</if>
+            <if test="tType != null">t_type = #{tType},</if>
+            <if test="tCreateUserId != null">t_create_user_id = #{tCreateUserId},</if>
+            <if test="tCreateTime != null">t_create_time = #{tCreateTime},</if>
+            <if test="tState != null">t_state = #{tState},</if>
+            <if test="tUserList != null">t_user_list = #{tUserList},</if>
+            <if test="tUserId != null">t_user_id = #{tUserId},</if>
+            <if test="tHandlerUserId != null">t_handler_user_id = #{tHandlerUserId},</if>
+        </trim>
+        where t_id = #{tId}
+    </update>
+
+    <delete id="deleteWorkTicketByTId" parameterType="Long">
+        delete from work_ticket where t_id = #{tId}
+    </delete>
+
+    <delete id="deleteWorkTicketByTIds" parameterType="String">
+        delete from work_ticket where t_id in 
+        <foreach item="tId" collection="array" open="(" separator="," close=")">
+            #{tId}
+        </foreach>
+    </delete>
+
+</mapper>

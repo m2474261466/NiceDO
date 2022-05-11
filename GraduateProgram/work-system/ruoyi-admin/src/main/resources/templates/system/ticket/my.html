@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('工单列表')" />
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+                <form id="formId">
+                    <div class="select-list">
+                        <ul>
+                            <li>
+                                <label>工单标题：</label>
+                                <input type="text" name="tTitile"/>
+                            </li>
+                            <li>
+                                <label>创建时间：</label>
+                                <input type="text" class="time-input" placeholder="请选择创建时间" name="tCreateTime"/>
+                            </li>
+
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn-group-sm" id="toolbar" role="group">
+                <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="system:ticket:export">
+                    <i class="fa fa-download"></i> 导出
+                </a>
+            </div>
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+        var editFlag = [[${@permission.hasPermi('system:ticket:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('system:ticket:remove')}]];
+        var successFlag = [[${@permission.hasPermi('system:my:success')}]];
+        var prefix = ctx + "system/my";
+
+        $(function() {
+            var options = {
+                url: prefix + "/list",
+                createUrl: prefix + "/add",
+                removeUrl: prefix + "/remove",
+                exportUrl: prefix + "/export",
+                updateUrl: prefix + "/edit/{id}",
+                modalName: "工单",
+                columns: [{
+                    checkbox: true
+                },
+                {
+                    field: 'tId',
+                    title: '工号'
+                },
+                {
+                    field: 'tTitile',
+                    title: '工单标题'
+                },
+                {
+                    field: 'tInfo',
+                    title: '工单信息'
+                },
+                {
+
+                    field: 'tType',
+                    title: '工单类型',
+                    formatter: function (value, row, index) {
+                        return value==0 ? "流转工单":"协同工单";
+                    }
+
+                },
+                {
+                    visible: false,
+                    field: 'tCreateUserId',
+                    title: '创建人id'
+                },
+                {
+                    field: 'tCreateTime',
+                    title: '创建时间'
+                },
+                {
+                    field: 'tState',
+                    title: '完成状态',
+                    formatter: function (value, row, index) {
+                        return value==0 ? "未完成":"完成";
+                    }
+                },
+                {
+                    visible: false,
+                    field: 'tUserList',
+                    title: '协作工单指定人数组(顺序排列)'
+                },
+                {
+                    visible: false,
+                    field: 'tUserId',
+                    title: '指定处理人id(流转工单)'
+                },
+                {
+                    visible: false,
+                    field: 'tHandlerUserId',
+                    title: '当前处理人id'
+                },
+
+            {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push('<a class="btn btn-primary btn-xs ' + successFlag + '" href="javascript:void(0)" onclick="$.operate.successTicket(\'' + row.tId + '\')"><i class="fa fa-check"></i>确认</a> ');
+                        return actions.join('');
+                    }
+                }]
+            };
+            $.table.init(options);
+        });
+    </script>
+</body>
+</html>
